@@ -92,6 +92,8 @@ this.cities = CityListFromAPI.getCityViaXhr();
 
   static createCardList () {
     this.cards = CardListFromAPI.getCardViaXhr();
+
+    return this.cards;
   }
 }
 

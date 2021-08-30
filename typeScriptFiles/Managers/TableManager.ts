@@ -1,5 +1,7 @@
 import { DataStorage } from "../../DataStorage";
 import { ApplicantControllerAPI } from "../API/ApplicantControllerAPI";
+import { CardControllerAPI } from "../API/CardControllerAPI";
+import { CityControllerAPI } from "../API/CityControllerAPI";
 import { ListManager } from "./ListManager";
 
 
@@ -52,7 +54,8 @@ export class TableManager {
                 let topLimitYearValueEdit = <HTMLInputElement>(  document.getElementById("topLimitYearValueAttach")  );
                 topLimitYearValueEdit.defaultValue = DataStorage.cities[i].TopLimitYearValue.toString(); 
 
-                DataStorage.cities = DataStorage.cities.filter (cityOpportunity => (cityOpportunity.CityName+cityOpportunity.OpportunityName) != (cityList[i].CityName+cityList[i].OpportunityName));
+                CityControllerAPI.editApplicantViaAPI(cityList[i],cityList[i].CityOpportunityId);
+                //DataStorage.cities = DataStorage.cities.filter (cityOpportunity => (cityOpportunity.CityName+cityOpportunity.OpportunityName) != (cityList[i].CityName+cityList[i].OpportunityName));
                 ListManager.refreshCityOpportunityTable();
         }
 
@@ -64,7 +67,8 @@ export class TableManager {
                 let cardPriceValueEdit = <HTMLInputElement>(  document.getElementById("cardPriceAttach")  );
                 cardPriceValueEdit.defaultValue = cardList[i]._price.toString(); 
                 
-                DataStorage.cards = DataStorage.cards.filter (card => (card.CardIdentitty) != (cardList[i].CardIdentitty));
+                CardControllerAPI.editCardViaAPI(cardList[i],cardList[i].identity);
+                //DataStorage.cards = DataStorage.cards.filter (card => (card.CardIdentitty) != (cardList[i].CardIdentitty));
                 ListManager.refreshCardTable();
 
         }
