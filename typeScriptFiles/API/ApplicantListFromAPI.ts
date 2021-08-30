@@ -11,7 +11,7 @@ export class ApplicantListFromAPI {
 			var data = JSON.parse(event.target.response);
 			if (Number(event.target.status) >= 200 && Number(event.target.status) < 400)
 			{
-				data._embedded.cities.forEach((applicant) => {
+				data.applicants.forEach((applicant) => {
 					applicants.push({ 
   
                         ApplicantName: applicant.applicantName,

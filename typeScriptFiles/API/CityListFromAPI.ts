@@ -5,18 +5,18 @@ export class CityListFromAPI {
     static getCityViaXhr() {
         let xhr = new XMLHttpRequest();
         let cities :Array<ICity> = new Array();
-        xhr.open("GET", 'http://localhost:1234/cities/');
+        xhr.open("GET", 'http://localhost:8080/cities/');
 
         xhr.onload = (event) => {
 			var data = JSON.parse(event.target.response);
 			if (Number(event.target.status) >= 200 && Number(event.target.status) < 400)
 			{
-				data._embedded.cities.forEach((city) => {
+				data.cities.forEach((city) => {
 					cities.push({ 
-										CityName: city.cityName,
-                                        OpportunityName: city.opportunityName,
-                                        PerYearPrice: Number(city.perYearPrice),
-                                        TopLimitYearValue: Number(city.topLimitYearValue),
+										CityName: city.CityName,
+                                        OpportunityName: city.OpportunityName,
+                                        PerYearPrice: Number(city.PerYearPrice),
+                                        TopLimitYearValue: Number(city.TopLimitYearValue),
                                         CityOpportunityId : Number(city.CityOpportunityId)
       				});
 				});

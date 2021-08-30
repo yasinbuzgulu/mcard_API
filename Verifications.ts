@@ -1,5 +1,5 @@
 import { DataStorage } from "./DataStorage";
-import { ListManager } from "./ListManager";
+import { ListManager } from "./typeScriptFiles/Managers/ListManager";
 
 
 export class Verifications {

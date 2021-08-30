@@ -4,21 +4,21 @@ export class CardListFromAPI {
 
     static getCardViaXhr () {
         let xhr = new XMLHttpRequest();
-        let applicants :Array<ICard> = new Array();
+        let cards :Array<ICard> = new Array();
         xhr.open("GET", 'http://localhost:8080/cards/');
 
         xhr.onload = (event) => {
 			var data = JSON.parse(event.target.response);
 			if (Number(event.target.status) >= 200 && Number(event.target.status) < 400)
 			{
-				data._embedded.cards.forEach((card) => {
+				data.cards.forEach((card) => {
 					cards.push({ 
  
 
                         CardIdentitty: Number (card.identity),
                         CardPrice: Number (card.price),
                         CardExpiryDate: card.expiryDate,
-                        User: Number(card.applicant),
+                        User: (card.applicant),
                         City: (card.city),
                         Opportunity: (card.opportunity)
       				});

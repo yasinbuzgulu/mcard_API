@@ -1,13 +1,14 @@
 import { Applicant } from './Applicant';
-import { ApplicantManager } from './ApplicantManager';
-import { CardManager } from './CardManager';
+import { ApplicantManager } from './typeScriptFiles/Managers/ApplicantManager';
 import { City } from './City';
-import { CityManager } from './CityManager';
+import { CityManager } from './typeScriptFiles/Managers/CityManager';
 import { DataStorage } from './DataStorage';
-import { ListManager } from './ListManager';
+import { ListManager } from './typeScriptFiles/Managers/ListManager';
 // Import stylesheets
 import './style.css';
-import { TableManager } from './TableManager';
+import { TableManager } from './typeScriptFiles/Managers/TableManager';
+import { CardManager } from './typeScriptFiles/Managers/CardManager';
+
 /**
  * Listeleri başlangıç halinde kapalı hale getiren kısım
  */

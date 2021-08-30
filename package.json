@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bourbon": "^7.0.0",
+    "json-server": "^0.16.3",
     "neat": "^2.1.0"
   },
   "devDependencies": {
