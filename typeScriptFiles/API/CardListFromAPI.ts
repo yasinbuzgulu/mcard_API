@@ -5,7 +5,7 @@ export class CardListFromAPI {
     static getCardViaXhr () {
         let xhr = new XMLHttpRequest();
         let applicants :Array<ICard> = new Array();
-        xhr.open("GET", 'http://localhost:1234/cards/');
+        xhr.open("GET", 'http://localhost:8080/cards/');
 
         xhr.onload = (event) => {
 			var data = JSON.parse(event.target.response);

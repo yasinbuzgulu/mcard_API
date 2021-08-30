@@ -9,7 +9,7 @@ export class ApplicantControllerAPI {
  */
     static createApplicantViaAPI (IApplicant) {
         let xmlRequest = new XMLHttpRequest();
-        xmlRequest.open("POST", 'http://localhost:1234/applicants/', false);
+        xmlRequest.open("POST", 'http://localhost:8080/applicants/', false);
         
 		xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xmlRequest.send(IApplicant);
@@ -25,7 +25,7 @@ export class ApplicantControllerAPI {
 	static editApplicantViaAPI(IApplicant, applicantID)
 	{
 		let xmlRequest = new XMLHttpRequest();
-		xmlRequest.open("PUT", 'http://localhost:1234/applicants/'+applicantID);
+		xmlRequest.open("PUT", 'http://localhost:8080/applicants/'+applicantID);
 		xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xmlRequest.send(IApplicant);
 		window.location.reload();
@@ -40,7 +40,7 @@ export class ApplicantControllerAPI {
 	static deleteApplicantViaAPI(applicantID)
 	{
 		let xhr = new XMLHttpRequest();
-		xhr.open("DELETE", 'http://localhost:1234/applicants/'+applicantID);
+		xhr.open("DELETE", 'http://localhost:8080/applicants/'+applicantID);
 		xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xhr.send();
 		window.location.reload();

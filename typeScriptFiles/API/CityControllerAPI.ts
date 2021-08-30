@@ -8,7 +8,7 @@ export class CityControllerAPI {
  */
     static createCityViaAPI (ICity) {
         let xmlRequest = new XMLHttpRequest();
-        xmlRequest.open("POST", 'http://localhost:1234/cities/', false);
+        xmlRequest.open("POST", 'http://localhost:8080/cities/', false);
         
 		xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xmlRequest.send(ICity);
@@ -24,7 +24,7 @@ export class CityControllerAPI {
 	static editApplicantViaAPI(ICity, CityOpportunityId)
 	{
 		let xmlRequest = new XMLHttpRequest();
-		xmlRequest.open("PUT", 'http://localhost:1234/cities/'+CityOpportunityId);
+		xmlRequest.open("PUT", 'http://localhost:8080/cities/'+CityOpportunityId);
 		xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xmlRequest.send(ICity);
 		window.location.reload();
@@ -39,7 +39,7 @@ export class CityControllerAPI {
 	static deleteCityViaAPI(CityOpportunityId)
 	{
 		let xhr = new XMLHttpRequest();
-		xhr.open("DELETE", 'http://localhost:1234/cities/'+CityOpportunityId);
+		xhr.open("DELETE", 'http://localhost:8080/cities/'+CityOpportunityId);
 		xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xhr.send();
 		window.location.reload();

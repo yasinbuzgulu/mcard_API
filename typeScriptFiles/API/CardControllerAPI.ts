@@ -9,7 +9,7 @@ export class CardControllerAPI {
  */
  static createCardViaAPI (ICard) {
     let xmlRequest = new XMLHttpRequest();
-    xmlRequest.open("POST", 'http://localhost:1234/cards/', false);
+    xmlRequest.open("POST", 'http://localhost:8080/cards/', false);
     
     xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlRequest.send(ICard);
