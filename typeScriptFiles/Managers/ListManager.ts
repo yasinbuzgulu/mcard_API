@@ -7,7 +7,7 @@ export class ListManager {
 /**
  * Yeni Kart kaydında kaydedilen kullanıcıların listelendiği kısım
  */
-  static createUserSelectList(myUser) {
+  static createUserSelectList(myUser) { 
     let selectList = document.createElement("select");
     selectList.id = "myUserSelect";
     selectList.innerHTML = `<option value="none" selected disabled hidden required> Lütfen Kullanıcı Seçiniz`;
@@ -323,7 +323,7 @@ export class ListManager {
       cell.appendChild(cellText);
       row.appendChild(cell);
       cell = document.createElement("td");
-      cellText = document.createTextNode(cardList[i].city[0]);
+      cellText = document.createTextNode(cardList[i].city);
       cell.appendChild(cellText);
       row.appendChild(cell);
             //}
@@ -341,7 +341,7 @@ export class ListManager {
       cellButtonDelete.addEventListener("click", function () {
         let confirmDelete = confirm ("Kart bilgisini silmek istediğinize emin misiniz? \n Dikkat, Bu işlem geri alınamaz!");
         if (confirmDelete) {
-        CardControllerAPI.deleteCityViaAPI(cardList[i]._identity);
+        CardControllerAPI.deleteCardViaAPI(cardList[i]._identity);
           //DataStorage.cards = DataStorage.cards.filter (card => (card._identity) != (cardList[i]._identity));
         ListManager.refreshCardTable();
         }

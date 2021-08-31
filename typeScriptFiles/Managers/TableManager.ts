@@ -54,7 +54,7 @@ export class TableManager {
                 let topLimitYearValueEdit = <HTMLInputElement>(  document.getElementById("topLimitYearValueAttach")  );
                 topLimitYearValueEdit.defaultValue = DataStorage.cities[i].TopLimitYearValue.toString(); 
 
-                CityControllerAPI.editApplicantViaAPI(cityList[i],cityList[i].CityOpportunityId);
+                CityControllerAPI.editCityViaAPI(cityList[i],cityList[i].CityOpportunityId);
                 //DataStorage.cities = DataStorage.cities.filter (cityOpportunity => (cityOpportunity.CityName+cityOpportunity.OpportunityName) != (cityList[i].CityName+cityList[i].OpportunityName));
                 ListManager.refreshCityOpportunityTable();
         }

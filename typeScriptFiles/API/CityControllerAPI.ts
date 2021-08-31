@@ -21,7 +21,7 @@ export class CityControllerAPI {
     /**
 	*	Verilen ICity objesini HTTP PUT metodu ile düzenleyen sınıf, 
 	*/
-	static editApplicantViaAPI(ICity, CityOpportunityId)
+	static editCityViaAPI(ICity, CityOpportunityId)
 	{
 		let xmlRequest = new XMLHttpRequest();
 		xmlRequest.open("PUT", 'http://localhost:8080/cities/'+CityOpportunityId);

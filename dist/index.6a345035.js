@@ -463,6 +463,7 @@ var _listManager = require("./typeScriptFiles/Managers/ListManager");
 var _styleCss = require("./style.css");
 var _tableManager = require("./typeScriptFiles/Managers/TableManager");
 var _cardManager = require("./typeScriptFiles/Managers/CardManager");
+var _cityListFromAPI = require("./typeScriptFiles/API/CityListFromAPI");
 /**
  * Listeleri başlangıç halinde kapalı hale getiren kısım
  */ const userTableSection = document.getElementById("userListSection");
@@ -476,8 +477,9 @@ cardListSection.style.display = "none";
  */ document.getElementById('applicantBirthDateAttach').max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
 /**
  * Default olarak kullanıcı ve şehir-olanakların eklendiği kısım
- */ let cityList = _dataStorage.DataStorage.createCityList();
-let applicantList = _dataStorage.DataStorage.createApplicantlist();
+ */ let cityDefaultList = _dataStorage.DataStorage.createCityList();
+let applicantDefaultList = _dataStorage.DataStorage.createApplicantlist();
+let cardDefaultList = _dataStorage.DataStorage.createCardList();
 /**
  * Yeni Kullancı kısmında kaydet butonuna tıklanınca karşılaşılacak senaryo
  */ const saveNewUser = document.getElementById("newUserSavingButton");
@@ -545,8 +547,9 @@ let myCityOpportunitySelectBox = document.getElementById("cityOpportunityField")
 _listManager.ListManager.createCityOpportunitySelectList(myCityOpportunitySelectBox);
 let myCitySelectBox = document.getElementById("checkBoxList");
 _listManager.ListManager.createCitySelectList(myCitySelectBox, "İstanbul");
+console.log(_cityListFromAPI.CityListFromAPI.getCityViaXhr() + "şehhirerrrrrrrr");
 
-},{"./typeScriptFiles/Managers/ApplicantManager":"7MKWA","./typeScriptFiles/Managers/CityManager":"5isDM","./DataStorage":"91qPx","./typeScriptFiles/Managers/ListManager":"a9xEb","./style.css":"dTv9V","./typeScriptFiles/Managers/TableManager":"kmwZ0","./typeScriptFiles/Managers/CardManager":"f7E1M"}],"7MKWA":[function(require,module,exports) {
+},{"./typeScriptFiles/Managers/ApplicantManager":"7MKWA","./typeScriptFiles/Managers/CityManager":"5isDM","./DataStorage":"91qPx","./typeScriptFiles/Managers/ListManager":"a9xEb","./style.css":"dTv9V","./typeScriptFiles/Managers/TableManager":"kmwZ0","./typeScriptFiles/Managers/CardManager":"f7E1M","./typeScriptFiles/API/CityListFromAPI":"bGmYO"}],"7MKWA":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /**
@@ -795,14 +798,14 @@ class ApplicantListFromAPI {
         xhr.open("GET", 'http://localhost:8080/applicants/');
         xhr.onload = (event)=>{
             var data = JSON.parse(event.target.response);
-            if (Number(event.target.status) >= 200 && Number(event.target.status) < 400) data._embedded.cities.forEach((applicant)=>{
+            if (Number(event.target.status) >= 200 && Number(event.target.status) < 400) data.forEach((applicant)=>{
                 applicants.push({
-                    ApplicantName: applicant.applicantName,
-                    ApplicantSurname: applicant.applicantSurname,
-                    ApplicantBirthDate: applicant.applicantBirthDate,
-                    ApplicantID: Number(applicant.applicantID),
-                    ApplicantTypeBasedOnAge: applicant.applicantTypeBasedOnAge,
-                    ApplicantTypeBasedOnEducation: applicant.applicantTypeBasedOnEducation
+                    ApplicantName: applicant.ApplicantName,
+                    ApplicantSurname: applicant.ApplicantSurname,
+                    ApplicantBirthDate: applicant.ApplicantBirthDate,
+                    ApplicantID: Number(applicant.ApplicantID),
+                    ApplicantTypeBasedOnAge: applicant.ApplicantTypeBasedOnAge,
+                    ApplicantTypeBasedOnEducation: applicant.ApplicantTypeBasedOnEducation
                 });
             });
             else console.log('error');
@@ -824,18 +827,18 @@ parcelHelpers.export(exports, "CardListFromAPI", ()=>CardListFromAPI
 class CardListFromAPI {
     static getCardViaXhr() {
         let xhr = new XMLHttpRequest();
-        let applicants = new Array();
+        let cards = new Array();
         xhr.open("GET", 'http://localhost:8080/cards/');
         xhr.onload = (event)=>{
             var data = JSON.parse(event.target.response);
-            if (Number(event.target.status) >= 200 && Number(event.target.status) < 400) data._embedded.cards.forEach((card)=>{
+            if (Number(event.target.status) >= 200 && Number(event.target.status) < 400) data.forEach((card)=>{
                 cards.push({
-                    CardIdentitty: Number(card.identity),
-                    CardPrice: Number(card.price),
-                    CardExpiryDate: card.expiryDate,
-                    User: Number(card.applicant),
-                    City: card.city,
-                    Opportunity: card.opportunity
+                    CardIdentitty: Number(card.CardIdentitty),
+                    CardPrice: Number(card.CardPrice),
+                    CardExpiryDate: card.CardExpiryDate,
+                    User: card.User,
+                    City: card.City,
+                    Opportunity: card.Opportunity
                 });
             });
             else console.log('error');
@@ -845,7 +848,7 @@ class CardListFromAPI {
         };
         // Send XHR request
         xhr.send();
-        return applicants;
+        return cards;
     }
 }
 
@@ -861,12 +864,12 @@ class CityListFromAPI {
         xhr.open("GET", 'http://localhost:8080/cities/');
         xhr.onload = (event)=>{
             var data = JSON.parse(event.target.response);
-            if (Number(event.target.status) >= 200 && Number(event.target.status) < 400) data._embedded.cities.forEach((city)=>{
+            if (Number(event.target.status) >= 200 && Number(event.target.status) < 400) data.forEach((city)=>{
                 cities.push({
-                    CityName: city.cityName,
-                    OpportunityName: city.opportunityName,
-                    PerYearPrice: Number(city.perYearPrice),
-                    TopLimitYearValue: Number(city.topLimitYearValue),
+                    CityName: city.CityName,
+                    OpportunityName: city.OpportunityName,
+                    PerYearPrice: Number(city.PerYearPrice),
+                    TopLimitYearValue: Number(city.TopLimitYearValue),
                     CityOpportunityId: Number(city.CityOpportunityId)
                 });
             });
@@ -1140,7 +1143,7 @@ class ListManager {
             cell.appendChild(cellText);
             row.appendChild(cell);
             cell = document.createElement("td");
-            cellText = document.createTextNode(cardList[i].city[0]);
+            cellText = document.createTextNode(cardList[i].city);
             cell.appendChild(cellText);
             row.appendChild(cell);
             //}
@@ -1155,7 +1158,7 @@ class ListManager {
             cellButtonDelete.addEventListener("click", function() {
                 let confirmDelete = confirm("Kart bilgisini silmek istediğinize emin misiniz? \n Dikkat, Bu işlem geri alınamaz!");
                 if (confirmDelete) {
-                    _cardControllerAPI.CardControllerAPI.deleteCityViaAPI(cardList[i]._identity);
+                    _cardControllerAPI.CardControllerAPI.deleteCardViaAPI(cardList[i]._identity);
                     //DataStorage.cards = DataStorage.cards.filter (card => (card._identity) != (cardList[i]._identity));
                     ListManager.refreshCardTable();
                 }
@@ -1272,7 +1275,7 @@ class CardControllerAPI {
     }
     /**
 * Verilen identity ile uygun ICard nesnesini silmek için HTTP DELETE metodunu çalıştırır.
-*/ static deleteCityViaAPI(identity) {
+*/ static deleteCardViaAPI(identity) {
         let xhr = new XMLHttpRequest();
         xhr.open("DELETE", 'http://localhost:1234/cities/' + identity);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -1304,7 +1307,7 @@ class CityControllerAPI {
     }
     /**
 	*	Verilen ICity objesini HTTP PUT metodu ile düzenleyen sınıf, 
-	*/ static editApplicantViaAPI(ICity, CityOpportunityId) {
+	*/ static editCityViaAPI(ICity, CityOpportunityId) {
         let xmlRequest = new XMLHttpRequest();
         xmlRequest.open("PUT", 'http://localhost:8080/cities/' + CityOpportunityId);
         xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -1364,7 +1367,7 @@ class TableManager {
         perYearPriceEdit.value = _dataStorage.DataStorage.cities[i].PerYearPrice.toString();
         let topLimitYearValueEdit = document.getElementById("topLimitYearValueAttach");
         topLimitYearValueEdit.defaultValue = _dataStorage.DataStorage.cities[i].TopLimitYearValue.toString();
-        _cityControllerAPI.CityControllerAPI.editApplicantViaAPI(cityList[i], cityList[i].CityOpportunityId);
+        _cityControllerAPI.CityControllerAPI.editCityViaAPI(cityList[i], cityList[i].CityOpportunityId);
         //DataStorage.cities = DataStorage.cities.filter (cityOpportunity => (cityOpportunity.CityName+cityOpportunity.OpportunityName) != (cityList[i].CityName+cityList[i].OpportunityName));
         _listManager.ListManager.refreshCityOpportunityTable();
     }

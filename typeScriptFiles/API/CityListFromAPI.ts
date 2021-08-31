@@ -11,7 +11,7 @@ export class CityListFromAPI {
 			var data = JSON.parse(event.target.response);
 			if (Number(event.target.status) >= 200 && Number(event.target.status) < 400)
 			{
-				data.cities.forEach((city) => {
+				data.forEach((city) => {
 					cities.push({ 
 										CityName: city.CityName,
                                         OpportunityName: city.OpportunityName,

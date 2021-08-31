@@ -37,7 +37,7 @@ static editCardViaAPI(ICard, identity)
 /**
 * Verilen identity ile uygun ICard nesnesini silmek için HTTP DELETE metodunu çalıştırır.
 */
-static deleteCityViaAPI(identity)
+static deleteCardViaAPI(identity)
 {
     let xhr = new XMLHttpRequest();
     xhr.open("DELETE", 'http://localhost:1234/cities/'+identity);

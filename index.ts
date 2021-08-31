@@ -8,6 +8,7 @@ import { ListManager } from './typeScriptFiles/Managers/ListManager';
 import './style.css';
 import { TableManager } from './typeScriptFiles/Managers/TableManager';
 import { CardManager } from './typeScriptFiles/Managers/CardManager';
+import { CityListFromAPI } from './typeScriptFiles/API/CityListFromAPI';
 
 /**
  * Listeleri başlangıç halinde kapalı hale getiren kısım
@@ -25,8 +26,9 @@ document.getElementById('applicantBirthDateAttach').max = new Date(new Date().ge
 /**
  * Default olarak kullanıcı ve şehir-olanakların eklendiği kısım
  */
-let cityList = DataStorage.createCityList();
-let applicantList = DataStorage.createApplicantlist();
+let cityDefaultList = DataStorage.createCityList();
+let applicantDefaultList = DataStorage.createApplicantlist();
+let cardDefaultList = DataStorage.createCardList();
 /**
  * Yeni Kullancı kısmında kaydet butonuna tıklanınca karşılaşılacak senaryo
  */
@@ -102,3 +104,6 @@ let myCityOpportunitySelectBox = document.getElementById("cityOpportunityField")
 ListManager.createCityOpportunitySelectList(myCityOpportunitySelectBox);  
 let myCitySelectBox = document.getElementById("checkBoxList");
 ListManager.createCitySelectList(myCitySelectBox,"İstanbul");  
+
+
+console.log(CityListFromAPI.getCityViaXhr()+"şehhirerrrrrrrr");

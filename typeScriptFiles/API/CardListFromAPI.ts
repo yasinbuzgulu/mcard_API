@@ -7,20 +7,18 @@ export class CardListFromAPI {
         let cards :Array<ICard> = new Array();
         xhr.open("GET", 'http://localhost:8080/cards/');
 
-        xhr.onload = (event) => {
+        xhr.onload = (event) => {	
 			var data = JSON.parse(event.target.response);
 			if (Number(event.target.status) >= 200 && Number(event.target.status) < 400)
 			{
-				data.cards.forEach((card) => {
+				data.forEach((card) => {
 					cards.push({ 
- 
-
-                        CardIdentitty: Number (card.identity),
-                        CardPrice: Number (card.price),
-                        CardExpiryDate: card.expiryDate,
-                        User: (card.applicant),
-                        City: (card.city),
-                        Opportunity: (card.opportunity)
+						CardIdentitty: Number (card.CardIdentitty),
+						CardPrice: Number (card.CardPrice),
+						CardExpiryDate: (card.CardExpiryDate),
+						User: (card.User),
+						City : (card.City),
+						Opportunity : (card.Opportunity)
       				});
 				});
 			}
@@ -33,6 +31,6 @@ export class CardListFromAPI {
 		  }
 		  // Send XHR request
 		  xhr.send();
-		  return applicants;
+		  return cards;
     }
 }
