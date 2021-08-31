@@ -23,6 +23,7 @@ export class Applicant implements IApplicant {
         this._typeOfApplicantBasedOnEducation = typeOfApplicantBasedOnEducation;
   }
 
+
     get ApplicantName() {
       return this._applicantName;
     }

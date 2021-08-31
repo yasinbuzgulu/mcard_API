@@ -539,13 +539,15 @@ listCards.onclick = function() {
     _listManager.ListManager.createCardList(_dataStorage.DataStorage.cards);
 };
 /**
- * Kart kaydındaki Select box ların oluşturulduğu kısım  
- */ let myUserSelectBox = document.getElementById("userField");
-_listManager.ListManager.createUserSelectList(myUserSelectBox);
-let myCityOpportunitySelectBox = document.getElementById("cityOpportunityField");
-_listManager.ListManager.createCityOpportunitySelectList(myCityOpportunitySelectBox);
-let myCitySelectBox = document.getElementById("checkBoxList");
-_listManager.ListManager.createCitySelectList(myCitySelectBox, "İstanbul");
+ * Kart kaydındaki Select box ların oluşturulduğu kısım
+ */ window.addEventListener("load", function() {
+    let myUserSelectBox = document.getElementById("userField");
+    _listManager.ListManager.createUserSelectList(myUserSelectBox, _dataStorage.DataStorage.applicants);
+    let myCityOpportunitySelectBox = document.getElementById("cityOpportunityField");
+    _listManager.ListManager.createCityOpportunitySelectList(myCityOpportunitySelectBox);
+    let myCitySelectBox = document.getElementById("checkBoxList");
+    _listManager.ListManager.createCitySelectList(myCitySelectBox, "İstanbul");
+});
 
 },{"./typeScriptFiles/Managers/ApplicantManager":"7MKWA","./typeScriptFiles/Managers/CityManager":"5isDM","./DataStorage":"91qPx","./typeScriptFiles/Managers/ListManager":"a9xEb","./style.css":"dTv9V","./typeScriptFiles/Managers/TableManager":"kmwZ0","./typeScriptFiles/Managers/CardManager":"f7E1M"}],"7MKWA":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -792,8 +794,8 @@ parcelHelpers.export(exports, "ApplicantListFromAPI", ()=>ApplicantListFromAPI
 class ApplicantListFromAPI {
     static getApplicantViaXhr() {
         let xhr = new XMLHttpRequest();
-        let applicants = new Array();
-        xhr.open("GET", 'http://localhost:8080/applicants/');
+        let applicants = [];
+        xhr.open("GET", 'http://localhost:8080/applicants/', true);
         xhr.onload = (event)=>{
             var data = JSON.parse(event.target.response);
             if (Number(event.target.status) >= 200 && Number(event.target.status) < 400) data.forEach((applicant)=>{
@@ -894,29 +896,29 @@ var _cityControllerAPI = require("../API/CityControllerAPI");
 var _tableManager = require("./TableManager");
 class ListManager {
     /**
- * Yeni Kart kaydında kaydedilen kullanıcıların listelendiği kısım
- */ static createUserSelectList(myUser) {
+     * Yeni Kart kaydında kaydedilen kullanıcıların listelendiği kısım
+     */ static createUserSelectList(myUser, applicants) {
         let selectList = document.createElement("select");
         selectList.id = "myUserSelect";
         selectList.innerHTML = `<option value="none" selected disabled hidden required> Lütfen Kullanıcı Seçiniz`;
         myUser.appendChild(selectList);
-        for(let i = 0; i < _dataStorage.DataStorage.applicants.length; i++){
+        for(let i = 0; i < applicants.length; i++){
             let option = document.createElement("option");
-            option.value = _dataStorage.DataStorage.applicants[i].ApplicantID.toString();
-            option.text = _dataStorage.DataStorage.applicants[i].ApplicantName + " " + _dataStorage.DataStorage.applicants[i].ApplicantID;
+            option.value = applicants[i].ApplicantID.toString();
+            option.text = applicants[i].ApplicantName + " " + applicants[i].ApplicantID;
             selectList.appendChild(option);
         }
     }
     /**
-   * Yeni kullanıcı eklendikçe, yeni kart kaydındaki kullanıcı selection listesini güncelleyen kısım
-   */ static updateUserSelectionList() {
+     * Yeni kullanıcı eklendikçe, yeni kart kaydındaki kullanıcı selection listesini güncelleyen kısım
+     */ static updateUserSelectionList() {
         let myUserSelectBox = document.getElementById("userField");
         myUserSelectBox.innerHTML = '';
-        ListManager.createUserSelectList(myUserSelectBox);
+        ListManager.createUserSelectList(myUserSelectBox, _dataStorage.DataStorage.applicants);
     }
     /**
- * Yeni Kart kaydında şehir selection listesinin hazırlandığı kısım
- */ static createCityOpportunitySelectList(myCityOpportunity) {
+     * Yeni Kart kaydında şehir selection listesinin hazırlandığı kısım
+     */ static createCityOpportunitySelectList(myCityOpportunity) {
         let selectListCity = document.createElement("select");
         selectListCity.id = "myCityOpportunitySelect";
         selectListCity.innerHTML = `<option value="none" selected disabled hidden required>Lütfen Şehir-Olanak Seçiniz`;
@@ -937,8 +939,8 @@ class ListManager {
         }
     }
     /**
- * Yeni Kart kaydında şehir seçimine bağlı olarak olanakların checkbox lara koyulduğu kısım 
- */ static createCitySelectList(myCitySelectBox, citiesName) {
+     * Yeni Kart kaydında şehir seçimine bağlı olarak olanakların checkbox lara koyulduğu kısım
+     */ static createCitySelectList(myCitySelectBox, citiesName) {
         const checkBoxList = document.getElementById("checkBoxList");
         checkBoxList.innerHTML = "";
         const myCityOpportunitySelect = document.getElementById("myCityOpportunitySelect");
@@ -959,22 +961,22 @@ class ListManager {
         }
     }
     /**
- * Şehir Selectiın List için Ekleme, Düzenleme ve silmelere işlemelerine bağlı değişikliklerin güncellendiği kısım
- */ static updateCityOpportunitySelectionList() {
+     * Şehir Selectiın List için Ekleme, Düzenleme ve silmelere işlemelerine bağlı değişikliklerin güncellendiği kısım
+     */ static updateCityOpportunitySelectionList() {
         let myCityOpportunitySelectBox = document.getElementById("cityOpportunityField");
         myCityOpportunitySelectBox.innerHTML = '';
         ListManager.createCityOpportunitySelectList(myCityOpportunitySelectBox);
     }
     /**
-   *  olanak checkboxları için Ekleme, Düzenleme ve silmelere işlemelerine bağlı değişikliklerin güncellendiği kısım
-   */ static updateCitySelectionList() {
+     *  olanak checkboxları için Ekleme, Düzenleme ve silmelere işlemelerine bağlı değişikliklerin güncellendiği kısım
+     */ static updateCitySelectionList() {
         let myCityOpportunitySelectBox = document.getElementById("checkBoxList");
         myCityOpportunitySelectBox.innerHTML = '';
         ListManager.createCitySelectList(myCityOpportunitySelectBox);
     }
     /**
- * Kayıtlı kullanıcılar için listeleme ve tablo oluşturan kısım
- */ static createUserList(userList) {
+     * Kayıtlı kullanıcılar için listeleme ve tablo oluşturan kısım
+     */ static createUserList(userList) {
         let userTable = document.getElementById("userTableId");
         userTable.innerHTML = "";
         let table = document.createElement("table");
@@ -1015,7 +1017,7 @@ class ListManager {
                 let confirmDelete = confirm("Kullanıcıyı silmek istediğinize emin misiniz? \n Dikkat, Bu işlem geri alınamaz!");
                 if (confirmDelete) {
                     _applicantControllerAPI.ApplicantControllerAPI.deleteApplicantViaAPI(userList[i].ApplicantID);
-                    //DataStorage.applicants = DataStorage.applicants.filter (applicant => 
+                    //DataStorage.applicants = DataStorage.applicants.filter (applicant =>
                     //(applicant.ApplicantName+applicant.ApplicantID) != (userList[i].ApplicantName+userList[i].ApplicantID));
                     ListManager.refreshUserTable();
                     ListManager.updateUserSelectionList();
@@ -1026,7 +1028,6 @@ class ListManager {
             row.appendChild(cell);
             cell = document.createElement("td");
             let cellEditButton = document.createElement("button");
-            // cellEditButton.setAttribute("href", "mainPage");
             cellEditButton.innerHTML = "Düzenle";
             cellEditButton.addEventListener("click", function() {
                 window.location.href = '#applicantPage';
@@ -1041,16 +1042,16 @@ class ListManager {
         userTable.appendChild(table);
     }
     /**
-   * Kullanıcı listesinin Ekleme, Düzenleme ve silme işlemelerine bağlı değişiklikler ile güncellendiği kısım
-   */ static refreshUserTable() {
+     * Kullanıcı listesinin Ekleme, Düzenleme ve silme işlemelerine bağlı değişiklikler ile güncellendiği kısım
+     */ static refreshUserTable() {
         let element = document.getElementById("userTableReferedId");
         element.innerHTML = "";
         element.parentNode.removeChild(element);
-        ListManager.createUserList(_dataStorage.DataStorage.applicants);
+    //  ListManager.createUserList(DataStorage.applicants);
     }
     /**
-   * Kayıtlı şehir olanaklar için listeleme ve tablo oluşturan kısım
-   */ static createCityOpportunityList(cityOpportunityList) {
+     * Kayıtlı şehir olanaklar için listeleme ve tablo oluşturan kısım
+     */ static createCityOpportunityList(cityOpportunityList) {
         let cityOpportunityTable = document.getElementById("cityOpportunityTableId");
         cityOpportunityTable.innerHTML = '';
         let table = document.createElement("table");
@@ -1083,7 +1084,7 @@ class ListManager {
                 let confirmDelete = confirm("Şehir - Olanak bilgisini silmek istediğinize emin misiniz? \n Dikkat, Bu işlem geri alınamaz!");
                 if (confirmDelete) {
                     _cityControllerAPI.CityControllerAPI.deleteCityViaAPI(cityOpportunityList[i].CityOpportunityId);
-                    //DataStorage.cities = DataStorage.cities.filter (cityOpportunity => 
+                    //DataStorage.cities = DataStorage.cities.filter (cityOpportunity =>
                     //(cityOpportunity.CityName+cityOpportunity.OpportunityName) != (cityOpportunityList[i].CityName+cityOpportunityList[i].OpportunityName));
                     ListManager.refreshCityOpportunityTable();
                     ListManager.updateCityOpportunitySelectionList();
@@ -1109,16 +1110,16 @@ class ListManager {
         cityOpportunityTable.appendChild(table);
     }
     /**
-   *  Şehir-Olanak listesinin Ekleme, Düzenleme ve silme işlemelerine bağlı değişiklikler ile güncellendiği kısım
-   */ static refreshCityOpportunityTable() {
+     *  Şehir-Olanak listesinin Ekleme, Düzenleme ve silme işlemelerine bağlı değişiklikler ile güncellendiği kısım
+     */ static refreshCityOpportunityTable() {
         let element = document.getElementById("cityOpportunityTableReferedId");
         element.innerHTML = "";
         element.parentNode.removeChild(element);
         ListManager.createCityOpportunityList(_dataStorage.DataStorage.cities);
     }
     /**
-   *Kayıtlı kartlar için listeleme ve tablo oluşturan kısım
-   */ static createCardList(cardList) {
+     *Kayıtlı kartlar için listeleme ve tablo oluşturan kısım
+     */ static createCardList(cardList) {
         let cardTable = document.getElementById("cardTableId");
         cardTable.innerHTML = "";
         let table = document.createElement("table");
@@ -1129,24 +1130,24 @@ class ListManager {
         for(let i = 0; i < cardList.length; i++){
             let row = document.createElement("tr");
             let cell = document.createElement("td");
-            let cellText = document.createTextNode(cardList[i]._identity);
+            let cellText = document.createTextNode(cardList[i].CardIdentitty);
             cell.appendChild(cellText);
             row.appendChild(cell);
             cell = document.createElement("td");
-            cellText = document.createTextNode(cardList[i]._expiryDate);
+            cellText = document.createTextNode(cardList[i].CardExpiryDate);
             cell.appendChild(cellText);
             row.appendChild(cell);
             cell = document.createElement("td");
-            cellText = document.createTextNode(cardList[i].applicant);
+            cellText = document.createTextNode(cardList[i].User);
             cell.appendChild(cellText);
             row.appendChild(cell);
             cell = document.createElement("td");
-            cellText = document.createTextNode(cardList[i].city);
+            cellText = document.createTextNode(cardList[i].City);
             cell.appendChild(cellText);
             row.appendChild(cell);
             //}
             cell = document.createElement("td");
-            cellText = document.createTextNode(cardList[i].opportunity);
+            cellText = document.createTextNode(cardList[i].Opportunity);
             cell.appendChild(cellText);
             row.appendChild(cell);
             row.appendChild(cell);
@@ -1156,7 +1157,8 @@ class ListManager {
             cellButtonDelete.addEventListener("click", function() {
                 let confirmDelete = confirm("Kart bilgisini silmek istediğinize emin misiniz? \n Dikkat, Bu işlem geri alınamaz!");
                 if (confirmDelete) {
-                    _cardControllerAPI.CardControllerAPI.deleteCardViaAPI(cardList[i]._identity);
+                    _cardControllerAPI.CardControllerAPI.deleteCardViaAPI(cardList[i].CardIdentitty);
+                    //İlgili kart kaydının silinmesi için API'siz format
                     //DataStorage.cards = DataStorage.cards.filter (card => (card._identity) != (cardList[i]._identity));
                     ListManager.refreshCardTable();
                 }
@@ -1186,8 +1188,8 @@ class ListManager {
         ListManager.createCardList(_dataStorage.DataStorage.cards);
     }
     /**
-   * Son kullanıcının kaldırıldığı kısım
-   */ static removeLast() {
+     * Son kullanıcının kaldırıldığı kısım
+     */ static removeLast() {
         // DataStorage.applicants.pop();
         _dataStorage.DataStorage.applicants.splice(-1, 1);
     }
@@ -1198,7 +1200,6 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ApplicantControllerAPI", ()=>ApplicantControllerAPI
 );
-var _dataStorage = require("../../DataStorage");
 var _iapplicant = require("../interface/IApplicant");
 class ApplicantControllerAPI {
     /**
@@ -1208,36 +1209,78 @@ class ApplicantControllerAPI {
         let xmlRequest = new XMLHttpRequest();
         xmlRequest.open("POST", 'http://localhost:8080/applicants/', false);
         xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlRequest.send(IApplicant);
-        window.location.reload();
+        xmlRequest.send(JSON.stringify(IApplicant));
+        //window.location.reload();
         if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400) console.log('error');
-        _dataStorage.DataStorage.createApplicantlist();
+    //DataStorage.createApplicantlist();
     }
     /**
 	*	Verilen IApplicant objesini HTTP PUT metodu ile düzenleyen sınıf, 
-	*/ static editApplicantViaAPI(IApplicant, applicantID) {
-        let xmlRequest = new XMLHttpRequest();
-        xmlRequest.open("PUT", 'http://localhost:8080/applicants/' + applicantID);
-        xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlRequest.send(IApplicant);
-        window.location.reload();
-        if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400) console.log('error');
-        _dataStorage.DataStorage.createApplicantlist();
+	*/ static editApplicantViaAPI(myApplicant, applicantID) {
+        var url = 'http://localhost:8080/applicants/' + applicantID;
+        var data = {
+            ApplicantName: myApplicant.ApplicantName,
+            ApplicantSurname: myApplicant.ApplicantSurname,
+            ApplicantBirthDate: myApplicant.ApplicantBirthDate,
+            ApplicantTypeBasedOnAge: myApplicant.ApplicantTypeBasedOnAge,
+            ApplicantTypeBasedOnEducation: myApplicant.ApplicantTypeBasedOnEducation
+        };
+        var json = JSON.stringify(data);
+        var xhr = new XMLHttpRequest();
+        xhr.open("PUT", url, true);
+        xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+        xhr.onload = function() {
+            var applicants = JSON.parse(xhr.responseText);
+            if (xhr.readyState == 4 && xhr.status == 200) console.table(applicants);
+            else console.error(applicants);
+        };
+        xhr.send(json);
+    // fetch ile PUT metodu
+    // fetch('http://localhost:8080/applicants/'+(applicantID), {
+    //  method: "PUT",
+    // body: JSON.stringify(
+    // 	{ApplicantName: myApplicant.ApplicantName,
+    // 		ApplicantSurname: myApplicant.ApplicantSurname,
+    // 		ApplicantBirthDate : myApplicant.ApplicantBirthDate,
+    // 		ApplicantTypeBasedOnAge :myApplicant.ApplicantTypeBasedOnAge,
+    // 		ApplicantTypeBasedOnEducation : myApplicant.ApplicantTypeBasedOnEducation})
+    // ,headers: {"Content-type": "application/json; charset=UTF-8"}})
+    // .then(response => response.json()).then(json => console.log(json))
+    /* will return{“userId”: 1,“id”: 5,“title”: “hello task”,“completed”: false}*/ /*let xmlRequest = new XMLHttpRequest();
+		xmlRequest.open("PUT", 'http://localhost:8080/applicants/'+(applicantID));
+		xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+		xmlRequest.send(JSON.stringify(IApplicant));
+		//window.location.reload();
+		if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400)
+			console.log('error');*/ //DataStorage.createApplicantlist();
     }
     /**
 	* Verilen applicantID ile uygun IApplicant nesnesini silmek için HTTP DELETE metodunu çalıştırır.
 	*/ static deleteApplicantViaAPI(applicantID) {
+        // var url = 'http://localhost:8080/applicants/'+(applicantID);
+        // var xhr = new XMLHttpRequest();
+        // xhr.open("DELETE", url, true);
+        // xhr.onload = function () {
+        // 	var applicants = JSON.parse(xhr.responseText);
+        // 	if (xhr.readyState == 4 && xhr.status == 200) {
+        // 		console.table(applicants);
+        // 	} else {
+        // 		console.error(applicants);
+        // 	}
+        // }
+        // xhr.send();
+        // Farklı bir delete methodu
         let xhr = new XMLHttpRequest();
         xhr.open("DELETE", 'http://localhost:8080/applicants/' + applicantID);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.send();
-        window.location.reload();
+        //window.location.reload();
         if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400) console.log('error');
-        _dataStorage.DataStorage.createApplicantlist();
+    //DataStorage.createApplicantlist();
     }
 }
 
-},{"../../DataStorage":"91qPx","../interface/IApplicant":"1lm3A","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"1lm3A":[function(require,module,exports) {
+},{"../interface/IApplicant":"1lm3A","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"1lm3A":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 
@@ -1255,10 +1298,10 @@ class CardControllerAPI {
         let xmlRequest = new XMLHttpRequest();
         xmlRequest.open("POST", 'http://localhost:8080/cards/', false);
         xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlRequest.send(ICard);
-        window.location.reload();
+        xmlRequest.send(JSON.stringify(ICard));
+        //  window.location.reload();
         if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400) console.log('error');
-        _dataStorage.DataStorage.createCardList();
+    //DataStorage.createCardList();
     }
     /**
 *	Verilen ICard objesini HTTP PUT metodu ile düzenleyen sınıf, 
@@ -1275,12 +1318,12 @@ class CardControllerAPI {
 * Verilen identity ile uygun ICard nesnesini silmek için HTTP DELETE metodunu çalıştırır.
 */ static deleteCardViaAPI(identity) {
         let xhr = new XMLHttpRequest();
-        xhr.open("DELETE", 'http://localhost:1234/cities/' + identity);
+        xhr.open("DELETE", 'http://localhost:1234/cards/' + identity);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.send();
-        window.location.reload();
+        //window.location.reload();
         if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400) console.log('error');
-        _dataStorage.DataStorage.createCardList();
+    //DataStorage.createCardList();
     }
 }
 
@@ -1298,10 +1341,10 @@ class CityControllerAPI {
         let xmlRequest = new XMLHttpRequest();
         xmlRequest.open("POST", 'http://localhost:8080/cities/', false);
         xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlRequest.send(ICity);
-        window.location.reload();
+        xmlRequest.send(JSON.stringify(ICity));
+        //window.location.reload();
         if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400) console.log('error');
-        _dataStorage.DataStorage.createCityList();
+    //DataStorage.createCityList();
     }
     /**
 	*	Verilen ICity objesini HTTP PUT metodu ile düzenleyen sınıf, 
@@ -1321,9 +1364,9 @@ class CityControllerAPI {
         xhr.open("DELETE", 'http://localhost:8080/cities/' + CityOpportunityId);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.send();
-        window.location.reload();
+        //window.location.reload();
         if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400) console.log('error');
-        _dataStorage.DataStorage.createCityList();
+    //DataStorage.createCityList();
     }
 }
 
@@ -1353,7 +1396,8 @@ class TableManager {
         else if (_dataStorage.DataStorage.applicants[i].ApplicantTypeBasedOnEducation == "Sivil") document.getElementById("applicatTypeSelection").value = '1';
         else document.getElementById("applicatTypeSelection").value = '2';
         _applicantControllerAPI.ApplicantControllerAPI.editApplicantViaAPI(userList[i], userList[i].applicantID);
-        // DataStorage.applicants = DataStorage.applicants.filter (applicant => applicant.ApplicantName != userList[i].ApplicantName);
+        // DataStorage.applicants = DataStorage.applicants.filter
+        // (applicant => applicant.ApplicantName != userList[i].ApplicantName);
         _listManager.ListManager.refreshUserTable();
     }
     static editCityTable(cityList, i) {
@@ -1366,7 +1410,8 @@ class TableManager {
         let topLimitYearValueEdit = document.getElementById("topLimitYearValueAttach");
         topLimitYearValueEdit.defaultValue = _dataStorage.DataStorage.cities[i].TopLimitYearValue.toString();
         _cityControllerAPI.CityControllerAPI.editCityViaAPI(cityList[i], cityList[i].CityOpportunityId);
-        //DataStorage.cities = DataStorage.cities.filter (cityOpportunity => (cityOpportunity.CityName+cityOpportunity.OpportunityName) != (cityList[i].CityName+cityList[i].OpportunityName));
+        //DataStorage.cities = DataStorage.cities.filter (cityOpportunity =>
+        // (cityOpportunity.CityName+cityOpportunity.OpportunityName) != (cityList[i].CityName+cityList[i].OpportunityName));
         _listManager.ListManager.refreshCityOpportunityTable();
     }
     static editCardTable(cardList, i) {
@@ -1670,6 +1715,13 @@ class CardManager {
         let result = "";
         _dataStorage.DataStorage.cards.forEach((card)=>{
             if (card.CardIdentitty === id) result = card.User + card.City + card.Opportunity;
+        });
+        return result;
+    }
+    static getCardCityWithId(id) {
+        let result = "";
+        _dataStorage.DataStorage.cards.forEach((card)=>{
+            if (card.CardIdentitty === id) result = card.User + card.City;
         });
         return result;
     }

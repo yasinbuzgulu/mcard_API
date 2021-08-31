@@ -88,5 +88,14 @@ export class CardManager {
      return result;
   }
 
+  static getCardCityWithId (id : Number)
+  {
+    let result = "";
+    DataStorage.cards.forEach((card => {
+      if(card.CardIdentitty=== id )
+        result = card.User + card.City;
+    }))
+    return result;
+  }
 
 }

@@ -65,25 +65,29 @@
 								<h5 class="title">Yeni Kullanıcı Kaydı</h5>
 									<div class="omrs-input-group" >
 										<label for="applicantNameAttach" class="omrs-input-underlined">
-											<input   minlength="2" maxlength="20"  id="applicantNameAttach" pattern="[A-Za-z]+" name="applicantNameAttach" type="text" placeholder="İsminizi Giriniz" required>
+											<input   minlength="2" maxlength="20"  id="applicantNameAttach" pattern="[A-Za-z]+" name="applicantNameAttach" type="text"  required>
+											<span class="omrs-input-label">Kullanıcı İsmi</span>
+
 										</label>
 									</div>
 									<div class="omrs-input-group">
 										<label class="omrs-input-underlined">
-											<input minlength="2" maxlength="20"  id="applicantSurnameAttach" pattern="[A-Za-z]+" type="text" placeholder="Soyisminizi Giriniz" required>
+											<input minlength="2" maxlength="20"  id="applicantSurnameAttach" pattern="[A-Za-z]+" type="text" required>
+											<span class="omrs-input-label">Kullanıcı Soyismi</span>
 										</label>
 									</div>
 									<div class="omrs-input-group">
 										<label class="omrs-input-underlined">
-											<input id="applicantBirthDateAttach" min='1899-01-01' name="date"  pattern='(?:((?:0[1-9]|1[0-9]|2[0-9])\/(?:0[1-9]|1[0-2])|(?:30)\/(?!02)(?:0[1-9]|1[0-2])|31\/(?:0[13578]|1[02]))\/(?:19|20)[0-9]{2})'  type="date" required>
+											<input id="applicantBirthDateAttach" min='1899-01-01' name="date"  pattern='(?:((?:0[1-9]|1[0-9]|2[0-9])\/(?:0[1-9]|1[0-2])|(?:30)\/(?!02)(?:0[1-9]|1[0-2])|31\/(?:0[13578]|1[02]))\/(?:19|20)[0-9]{2})' type="text"  required>
+											<span class="omrs-input-label">Doğum Tarihi (DD/MM/YYYY)</span>
 										</label>
 									</div>
 									<div class="omrs-input-group">
 										<label class="omrs-input-underlined">
-											
 											<input id="applicantIDAttach" type="number" min="0" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
-											maxlength="11"  ngModel required pattern="\d" placeholder="Kimlik Numaranızı Giriniz" >
-											
+											maxlength="11"  ngModel required pattern="\d">
+											<span class="omrs-input-label">Kullanıcı Kimlik Numarası (T.C)</span>
+
 										</label>
 									</div>
 									<div id="selectCitizenType" class="citizenField" >

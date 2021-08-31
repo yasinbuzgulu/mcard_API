@@ -18,6 +18,7 @@ static cards: Array<ICard> = new Array();
  */
 
 static createCityList() {
+
 this.cities = CityListFromAPI.getCityViaXhr();
  /*
   this.cities.push(
