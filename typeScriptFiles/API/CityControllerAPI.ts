@@ -7,15 +7,16 @@ export class CityControllerAPI {
  * @param ICity nesnesini HTTP POST metodu ile gönderen metod
  */
     static createCityViaAPI (ICity) {
+
         let xmlRequest = new XMLHttpRequest();
         xmlRequest.open("POST", 'http://localhost:8080/cities/', false);
         
 		xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-		xmlRequest.send(ICity);
-		window.location.reload();
+		xmlRequest.send(JSON.stringify(ICity));
+		//window.location.reload();
 		if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400)
 			console.log('error');
-		DataStorage.createCityList();
+		//DataStorage.createCityList();
     }
 
     /**
@@ -42,9 +43,9 @@ export class CityControllerAPI {
 		xhr.open("DELETE", 'http://localhost:8080/cities/'+CityOpportunityId);
 		xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xhr.send();
-		window.location.reload();
+		//window.location.reload();
 		if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400)
 			console.log('error');
-		DataStorage.createCityList();
+		//DataStorage.createCityList();
 	}
 }

@@ -1,22 +1,21 @@
 import { DataStorage } from "../../DataStorage";
 
 export class CardControllerAPI {
-
         
 /**
  * 
  * @param Icard nesnesini HTTP POST metodu ile gönderen metod
  */
  static createCardViaAPI (ICard) {
+
     let xmlRequest = new XMLHttpRequest();
     xmlRequest.open("POST", 'http://localhost:8080/cards/', false);
-    
     xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xmlRequest.send(ICard);
-    window.location.reload();
+    xmlRequest.send(JSON.stringify(ICard));
+  //  window.location.reload();
     if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400)
         console.log('error');
-    DataStorage.createCardList();
+    //DataStorage.createCardList();
 }
 
 /**
@@ -40,12 +39,12 @@ static editCardViaAPI(ICard, identity)
 static deleteCardViaAPI(identity)
 {
     let xhr = new XMLHttpRequest();
-    xhr.open("DELETE", 'http://localhost:1234/cities/'+identity);
+    xhr.open("DELETE", 'http://localhost:1234/cards/'+identity);
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.send();
-    window.location.reload();
+    //window.location.reload();
     if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400)
         console.log('error');
-    DataStorage.createCardList();
+    //DataStorage.createCardList();
 }
 }
