@@ -1,5 +1,5 @@
-11870
-56/home/yasinbuzgulu/İndirilenler/mcard-master/index.html1630308020226622475 0
+11871
+56/home/yasinbuzgulu/İndirilenler/mcard-master/index.html1630335284345288945 0
 93/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/github-from-package/example/url.js1356779033000000000 0
 86/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/github-from-package/example1630174951721959275 1
 86/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/github-from-package/LICENSE1356779473000000000 0
@@ -1294,7 +1294,7 @@
 89/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/operator/sequenceEqual.js499162500000000000 0
 95/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/internal-compatibility/index.js499162500000000000 0
 106/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm5/internal/operators/ignoreElements.js499162500000000000 0
-78/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server/lib/cli1630324226503093650 1
+78/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server/lib/cli1630325595692600892 1
 97/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/add/operator/onErrorResumeNext.js499162500000000000 0
 91/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/operator/subscribeOn.js.map499162500000000000 0
 88/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@oclif/config/lib/config.d.ts1596476474000000000 0
@@ -1521,6 +1521,7 @@
 83/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/operator/let.js.map499162500000000000 0
 94/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/fs-extra/lib/ensure/symlink-type.js499162500000000000 0
 93/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/highlight.js/lib/languages/less.js499162500000000000 0
+53/home/yasinbuzgulu/İndirilenler/mcard-master/db.json1630325737155292634 0
 86/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/fs-extra/lib/empty/index.js499162500000000000 0
 87/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/fs-extra/lib/mkdirs/index.js499162500000000000 0
 75/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/node-abi/LICENSE499162500000000000 0
@@ -2258,7 +2259,7 @@
 114/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lmdb-store/dependencies/lmdb/libraries/liblmdb/module.c499162500000000000 0
 108/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/split2/node_modules/readable-stream/GOVERNANCE.md499162500000000000 0
 81/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/simple-swizzle/LICENSE1479261830000000000 0
-63/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/.bin1630324226875113784 1
+63/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/.bin1630325595720596079 1
 104/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/split2/node_modules/readable-stream/README.md499162500000000000 0
 69/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/is-extglob1630174689793913243 1
 72/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/add.js499162500000000000 0
@@ -3124,7 +3125,7 @@
 87/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/fp/defaultsDeepAll.js499162500000000000 0
 77/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/fp/unary.js499162500000000000 0
 83/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/operator/max.js.map499162500000000000 0
-60/home/yasinbuzgulu/İndirilenler/mcard-master/DataStorage.ts1630323327709064948 0
+60/home/yasinbuzgulu/İndirilenler/mcard-master/DataStorage.ts1630393414888892772 0
 75/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/concat.js499162500000000000 0
 88/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/src/add/operator/find.ts499162500000000000 0
 93/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@types/util.promisify/package.json1630174689665909310 0
@@ -3662,7 +3663,7 @@
 96/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/internal/operators/windowWhen.js499162500000000000 0
 91/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@nodelib/fs.stat/out/settings.js499162500000000000 0
 80/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/_createWrap.js499162500000000000 0
-86/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/API/CityControllerAPI.ts1630311632343387363 0
+86/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/API/CityControllerAPI.ts1630394219638959716 0
 78/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/snakeCase.js499162500000000000 0
 68/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/minimatch1630174952745990731 1
 81/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/isTypedArray.js499162500000000000 0
@@ -4184,7 +4185,7 @@
 85/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/is-data-descriptor/LICENSE1440999537000000000 0
 93/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/highlight.js/lib/languages/isbl.js499162500000000000 0
 90/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/utils/lib/DefaultMap.js499162500000000000 0
-45/home/yasinbuzgulu/İndirilenler/mcard-master1630324227099125905 1
+45/home/yasinbuzgulu/İndirilenler/mcard-master1630325737155292634 1
 83/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash.template/index.js499162500000000000 0
 92/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/src/internal/util/isArray.ts499162500000000000 0
 101/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/method-override/node_modules/ms/license.md1494937320000000000 0
@@ -4531,7 +4532,7 @@
 89/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/fs-search/package.json1630174952565985201 0
 85/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/fp/sortedIndexOf.js499162500000000000 0
 76/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/fs-search1630174952569985324 1
-89/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/API/ApplicantListFromAPI.ts1630311632343387363 0
+89/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/API/ApplicantListFromAPI.ts1630396132514160026 0
 104/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm2015/internal/util/canReportError.js499162500000000000 0
 111/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm2015/internal/operators/timeInterval.js.map499162500000000000 0
 80/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/fp/defaults.js499162500000000000 0
@@ -4713,7 +4714,7 @@
 90/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm5/internal/Observer.js499162500000000000 0
 81/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/_mapCacheSet.js499162500000000000 0
 97/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/package-manager/lib/types.d.ts499162500000000000 0
-84/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/API/CityListFromAPI.ts1630311625027191565 0
+84/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/API/CityListFromAPI.ts1630396129322209988 0
 87/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/snapdragon-util/node_modules1630174952453981760 1
 99/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/internal/operators/observeOn.js.map499162500000000000 0
 81/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/supports-color/license1496344655000000000 0
@@ -4834,7 +4835,7 @@
 82/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@nodelib/fs.scandir/out1630174689117892475 1
 71/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/send/LICENSE499162500000000000 0
 80/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/yargs/locales/nl.json499162500000000000 0
-73/home/yasinbuzgulu/İndirilenler/mcard-master/dist/mcardlogo.8d644e46.png1630324406808474781 0
+73/home/yasinbuzgulu/İndirilenler/mcard-master/dist/mcardlogo.8d644e46.png1630394597565135732 0
 84/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/inquirer/lib/ui/prompt.js499162500000000000 0
 92/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@types/lodash/fp/isEqualWith.d.ts1627979486000000000 0
 126/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/bl/node_modules/readable-stream/lib/internal/streams/buffer_list.js499162500000000000 0
@@ -4903,7 +4904,7 @@
 114/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/msgpackr-extract/build/Release/.deps/Release/obj.target1630174953962028083 1
 74/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/bl/package.json1630174952629987167 0
 90/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/utils/lib/getRootDir.js499162500000000000 0
-68/home/yasinbuzgulu/İndirilenler/mcard-master/dist/index.6a345035.js1630324406816475182 0
+68/home/yasinbuzgulu/İndirilenler/mcard-master/dist/index.6a345035.js1630398381151644963 0
 86/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/operator/windowWhen.js499162500000000000 0
 110/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/source-map/parcel_sourcemap_node/src/lib.rs499162500000000000 0
 94/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@types/lodash/fp/cloneDeepWith.d.ts1627979486000000000 0
@@ -4965,7 +4966,7 @@
 85/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/cache/lib/types.js499162500000000000 0
 111/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm2015/internal/operators/bufferToggle.js.map499162500000000000 0
 88/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/operators/exhaust.js.map499162500000000000 0
-88/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server/lib/server/router1630324226519094516 1
+88/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server/lib/server/router1630325595692600892 1
 109/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm5/internal/observable/fromIterable.js.map499162500000000000 0
 113/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/utils/node_modules/fast-glob/out/utils/fs.d.ts499162500000000000 0
 111/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/bourbon/core/bourbon/validators/_contains-falsy.scss499162500000000000 0
@@ -5067,11 +5068,11 @@
 102/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/workers/lib/process/ProcessChild.js499162500000000000 0
 104/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server/lib/server/router/get-full-url.js499162500000000000 0
 100/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm5/internal/operators/distinct.js499162500000000000 0
-84/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/API/CardListFromAPI.ts1630311632343387363 0
+84/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/API/CardListFromAPI.ts1630396128322225835 0
 111/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/redeyed/test/redeyed-function-config-extra-params.js1526935749000000000 0
 102/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/natural-orderby/iife/natural-orderby.min.js499162500000000000 0
 79/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/ieee754/package.json1630174952781991836 0
-81/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server/lib/server1630324226515094299 1
+81/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server/lib/server1630325595692600892 1
 85/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/interface/IApplicant.ts1629709659000000000 0
 80/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/graceful-fs/README.md499162500000000000 0
 63/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/pump1630174952629987167 1
@@ -5105,7 +5106,7 @@
 83/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@nodelib/fs.walk/LICENSE499162500000000000 0
 95/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@types/lodash/sortedLastIndexOf.d.ts1627979486000000000 0
 83/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/fs/lib/NodeFS.js499162500000000000 0
-77/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server/public1630324226507093866 1
+77/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server/public1630325595692600892 1
 79/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/operator/max.js499162500000000000 0
 101/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/fs-write-stream-atomic/.travis.yml499162500000000000 0
 77/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/toFinite.js499162500000000000 0
@@ -5137,7 +5138,7 @@
 72/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/isexe/LICENSE1454992766000000000 0
 93/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@types/lodash/fp/runInContext.d.ts1627979486000000000 0
 79/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/strip-ansi/readme.md499162500000000000 0
-50/home/yasinbuzgulu/İndirilenler/mcard-master/dist1630324406820475383 1
+50/home/yasinbuzgulu/İndirilenler/mcard-master/dist1630398381155644869 1
 73/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/trim.js499162500000000000 0
 81/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/minimatch/package.json1630174952741990608 0
 80/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lowlight/changelog.md499162500000000000 0
@@ -5162,7 +5163,7 @@
 92/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/semver/functions/compare-build.js499162500000000000 0
 85/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/color-convert/CHANGELOG.md499162500000000000 0
 75/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/node-abi/.github1630174952137972054 1
-72/home/yasinbuzgulu/İndirilenler/mcard-master/dist/index.6a345035.js.map1630324406820475383 0
+72/home/yasinbuzgulu/İndirilenler/mcard-master/dist/index.6a345035.js.map1630398381155644869 0
 97/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server/lib/server/router/delay.js499162500000000000 0
 99/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/diagnostic/test/markdown.test.js499162500000000000 0
 127/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/utils/node_modules/fast-glob/node_modules/micromatch/LICENSE499162500000000000 0
@@ -5231,7 +5232,7 @@
 114/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/define-property/node_modules/is-data-descriptor/LICENSE1509517852000000000 0
 78/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/_baseRest.js499162500000000000 0
 100/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm2015/internal/util/EmptyError.js499162500000000000 0
-54/home/yasinbuzgulu/İndirilenler/mcard-master/index.ts1630310289742256223 0
+54/home/yasinbuzgulu/İndirilenler/mcard-master/index.ts1630398381035647735 0
 79/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@nodelib/fs.stat/out1630174688897885716 1
 109/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/fs-write-stream-atomic/test/rename-fail.js499162500000000000 0
 83/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/observable/zip.d.ts499162500000000000 0
@@ -5329,7 +5330,7 @@
 84/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/negotiator/lib/charset.js499162500000000000 0
 80/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@types/lodash/at.d.ts1627979485000000000 0
 87/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/types/lib/index.d.ts499162500000000000 0
-74/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server/lib1630324226351085423 1
+74/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server/lib1630325595688601579 1
 90/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/add/operator/zipAll.js.map499162500000000000 0
 91/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/source-map/dist/types.js499162500000000000 0
 71/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/pupa/license499162500000000000 0
@@ -5843,7 +5844,7 @@
 82/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/string-width/index.d.ts499162500000000000 0
 74/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/safe-regex/test1630174952009968121 1
 96/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@szmarczak/http-timer/source/index.js499162500000000000 0
-86/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/API/CardControllerAPI.ts1630311632343387363 0
+86/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/API/CardControllerAPI.ts1630394216890776177 0
 82/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/safe-regex/package.json1630174952685988887 0
 90/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/operators/shareReplay.d.ts499162500000000000 0
 110/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/define-property/node_modules/is-accessor-descriptor1630174952777991713 1
@@ -5854,7 +5855,7 @@
 86/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@types/lodash/fp/unary.d.ts1627979487000000000 0
 100/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/operator/distinctUntilChanged.js.map499162500000000000 0
 80/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/sprintf-js/bower.json1436535223000000000 0
-58/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules1630324226911115732 1
+58/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules1630325595724595392 1
 87/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/password-prompt/package.json1630174689725911154 0
 89/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/src/operator/skipWhile.ts499162500000000000 0
 111/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/gauge/node_modules/is-fullwidth-code-point/readme.md1437083960000000000 0
@@ -6102,7 +6103,7 @@
 95/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/yaml/browser/dist/Schema-e94716c8.js499162500000000000 0
 105/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/add/operator/distinctUntilKeyChanged.d.ts499162500000000000 0
 86/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/operators/share.js.map499162500000000000 0
-91/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/API/ApplicantControllerAPI.ts1630311632343387363 0
+91/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/API/ApplicantControllerAPI.ts1630394214502616340 0
 89/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/operators/mergeAll.js.map499162500000000000 0
 99/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/yaml/browser/dist/PlainValue-b8036b75.js499162500000000000 0
 85/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/normalize-url/package.json1630324226811110320 0
@@ -6423,7 +6424,7 @@
 100/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/src/internal/operators/catchError.ts499162500000000000 0
 100/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/internal/util/hostReportError.js.map499162500000000000 0
 100/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/internal/operators/mergeMapTo.js.map499162500000000000 0
-69/home/yasinbuzgulu/İndirilenler/mcard-master/dist/index.8e0184e2.css1630324406816475182 0
+69/home/yasinbuzgulu/İndirilenler/mcard-master/dist/index.8e0184e2.css1630394597593137199 0
 78/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/upperCase.js499162500000000000 0
 80/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/_baseUpdate.js499162500000000000 0
 105/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/ansi-align/node_modules/emoji-regex/index.d.ts499162500000000000 0
@@ -6557,7 +6558,7 @@
 113/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/figures/node_modules/escape-string-regexp/package.json1630174689665909310 0
 76/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/atob/package.json1630174952569985324 0
 92/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash.templatesettings/README.md499162500000000000 0
-61/home/yasinbuzgulu/İndirilenler/mcard-master/dist/index.html1630324406816475182 0
+61/home/yasinbuzgulu/İndirilenler/mcard-master/dist/index.html1630394597593137199 0
 84/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@types/lodash/fp/max.d.ts1627979486000000000 0
 79/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/format/format-min.js1413579353000000000 0
 74/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/atob/bower.json499162500000000000 0
@@ -7015,7 +7016,7 @@
 85/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/src/internal/types.ts499162500000000000 0
 80/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/astral-regex/index.js499162500000000000 0
 109/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm2015/internal/scheduler/QueueScheduler.js499162500000000000 0
-72/home/yasinbuzgulu/İndirilenler/mcard-master/dist/MainPage.a2138e6b.png1630324406812474982 0
+72/home/yasinbuzgulu/İndirilenler/mcard-master/dist/MainPage.a2138e6b.png1630394597573136151 0
 78/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/camelCase.js499162500000000000 0
 119/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/tar-stream/node_modules/readable-stream/lib/internal/streams1630174951981967262 1
 112/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm2015/internal/operators/publishReplay.js.map499162500000000000 0
@@ -7119,7 +7120,7 @@
 90/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/src/add/operator/reduce.ts499162500000000000 0
 89/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/yaml/browser/dist/parse-cst.js499162500000000000 0
 80/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@types/lodash/LICENSE1627979480000000000 0
-85/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/Managers/ListManager.ts1630323327709064948 0
+85/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/Managers/ListManager.ts1630395129526370029 0
 81/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/_getFuncName.js499162500000000000 0
 99/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/src/internal-compatibility/index.ts499162500000000000 0
 117/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/utils/node_modules/fast-glob/out/providers/sync.js499162500000000000 0
@@ -7154,7 +7155,7 @@
 78/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/_flatRest.js499162500000000000 0
 93/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/package-manager/lib/Npm.js499162500000000000 0
 100/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/semver-diff/node_modules/semver/semver.js499162500000000000 0
-86/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/Managers/TableManager.ts1630323327709064948 0
+86/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/Managers/TableManager.ts1630394289019464932 0
 85/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/_cloneTypedArray.js499162500000000000 0
 111/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/fs-search/fs-search.linux-arm-gnueabihf.node499162500000000000 0
 110/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/gauge/node_modules/is-fullwidth-code-point/index.js1437083853000000000 0
@@ -7326,7 +7327,7 @@
 93/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/add/operator/concatAll.js.map499162500000000000 0
 73/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/date.js499162500000000000 0
 65/home/yasinbuzgulu/İndirilenler/mcard-master/typeScriptFiles/API1630306815833301758 1
-70/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server1630324226759107506 1
+70/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server1630325595716596767 1
 78/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/fs-extra/lib/remove1630174689133892967 1
 76/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/lodash/attempt.js499162500000000000 0
 77/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/fs/LICENSE499162500000000000 0
@@ -7920,7 +7921,7 @@
 109/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm2015/internal/util/UnsubscriptionError.js499162500000000000 0
 92/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/internal/util/applyMixins.js499162500000000000 0
 93/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/internal/util/toSubscriber.js499162500000000000 0
-73/home/yasinbuzgulu/İndirilenler/mcard-master/dist/index.8e0184e2.css.map1630324406820475383 0
+73/home/yasinbuzgulu/İndirilenler/mcard-master/dist/index.8e0184e2.css.map1630394597593137199 0
 91/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/add/operator/mergeScan.d.ts499162500000000000 0
 80/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/tunnel-agent/index.js1488673752000000000 0
 92/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/operators/dematerialize.d.ts499162500000000000 0
@@ -8526,7 +8527,7 @@
 84/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/fs-search/LICENSE499162500000000000 0
 108/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm2015/internal/util/subscribeToPromise.js499162500000000000 0
 97/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/observable/ArrayLikeObservable.js499162500000000000 0
-75/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/.bin/json-server1630324226875113784 0
+75/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/.bin/json-server1630325595720596079 0
 101/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@nodelib/fs.scandir/out/providers/async.js499162500000000000 0
 100/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm2015/internal/util/isFunction.js499162500000000000 0
 107/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm2015/internal/util/subscribeToResult.js499162500000000000 0
@@ -8794,7 +8795,7 @@
 103/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/src/internal/operators/sequenceEqual.ts499162500000000000 0
 105/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm2015/internal/operators/sampleTime.js499162500000000000 0
 104/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm2015/internal/operators/auditTime.js499162500000000000 0
-55/home/yasinbuzgulu/İndirilenler/mcard-master/style.css1630308023070723529 0
+55/home/yasinbuzgulu/İndirilenler/mcard-master/style.css1630334931050128171 0
 105/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm2015/internal/operators/exhaustMap.js499162500000000000 0
 105/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm2015/internal/operators/single.js.map499162500000000000 0
 105/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm2015/internal/operators/repeat.js.map499162500000000000 0
@@ -11056,7 +11057,7 @@
 101/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/rxjs/_esm2015/internal/observable/empty.js499162500000000000 0
 88/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/argparse/lib/action/append.js1454676134000000000 0
 92/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/argparse/lib/action/subparsers.js1454749861000000000 0
-83/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server/package.json1630324226755107289 0
+83/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server/package.json1630325595716596767 0
 87/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/argparse/lib/action/store.js1454749671000000000 0
 85/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/@parcel/cache/src/types.js499162500000000000 0
 86/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/argparse/lib/action/help.js1454749653000000000 0
@@ -11236,7 +11237,7 @@
 66/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/ncp/bin1630174952097970825 1
 70/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/ncp/bin/ncp1417018463000000000 0
 66/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/ncp/lib1630174952109971194 1
-84/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server/lib/cli/utils1630324226467091702 1
+84/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/json-server/lib/cli/utils1630325595692600892 1
 103/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/msgpackr-extract/build/Release/.deps/Release1630174953966028206 1
 71/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/errorhandler1630324226759107506 1
 82/home/yasinbuzgulu/İndirilenler/mcard-master/node_modules/errorhandler/HISTORY.md499162500000000000 0
