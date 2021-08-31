@@ -106,4 +106,3 @@ let myCitySelectBox = document.getElementById("checkBoxList");
 ListManager.createCitySelectList(myCitySelectBox,"İstanbul");  
 
 
-console.log(CityListFromAPI.getCityViaXhr()+"şehhirerrrrrrrr");

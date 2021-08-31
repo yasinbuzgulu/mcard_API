@@ -463,7 +463,6 @@ var _listManager = require("./typeScriptFiles/Managers/ListManager");
 var _styleCss = require("./style.css");
 var _tableManager = require("./typeScriptFiles/Managers/TableManager");
 var _cardManager = require("./typeScriptFiles/Managers/CardManager");
-var _cityListFromAPI = require("./typeScriptFiles/API/CityListFromAPI");
 /**
  * Listeleri başlangıç halinde kapalı hale getiren kısım
  */ const userTableSection = document.getElementById("userListSection");
@@ -547,9 +546,8 @@ let myCityOpportunitySelectBox = document.getElementById("cityOpportunityField")
 _listManager.ListManager.createCityOpportunitySelectList(myCityOpportunitySelectBox);
 let myCitySelectBox = document.getElementById("checkBoxList");
 _listManager.ListManager.createCitySelectList(myCitySelectBox, "İstanbul");
-console.log(_cityListFromAPI.CityListFromAPI.getCityViaXhr() + "şehhirerrrrrrrr");
 
-},{"./typeScriptFiles/Managers/ApplicantManager":"7MKWA","./typeScriptFiles/Managers/CityManager":"5isDM","./DataStorage":"91qPx","./typeScriptFiles/Managers/ListManager":"a9xEb","./style.css":"dTv9V","./typeScriptFiles/Managers/TableManager":"kmwZ0","./typeScriptFiles/Managers/CardManager":"f7E1M","./typeScriptFiles/API/CityListFromAPI":"bGmYO"}],"7MKWA":[function(require,module,exports) {
+},{"./typeScriptFiles/Managers/ApplicantManager":"7MKWA","./typeScriptFiles/Managers/CityManager":"5isDM","./DataStorage":"91qPx","./typeScriptFiles/Managers/ListManager":"a9xEb","./style.css":"dTv9V","./typeScriptFiles/Managers/TableManager":"kmwZ0","./typeScriptFiles/Managers/CardManager":"f7E1M"}],"7MKWA":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /**
