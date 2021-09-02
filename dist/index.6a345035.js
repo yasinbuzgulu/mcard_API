@@ -539,7 +539,7 @@ listCards.onclick = function() {
     _listManager.ListManager.createCardList(_dataStorage.DataStorage.cards);
 };
 /**
- * Kart kaydındaki Select box ların oluşturulduğu kısım
+ * Kart kaydındaki Select box ların oluşturulduğu kısım  
  */ window.addEventListener("load", function() {
     let myUserSelectBox = document.getElementById("userField");
     _listManager.ListManager.createUserSelectList(myUserSelectBox, _dataStorage.DataStorage.applicants);
@@ -794,8 +794,8 @@ parcelHelpers.export(exports, "ApplicantListFromAPI", ()=>ApplicantListFromAPI
 class ApplicantListFromAPI {
     static getApplicantViaXhr() {
         let xhr = new XMLHttpRequest();
-        let applicants = [];
-        xhr.open("GET", 'http://localhost:8080/applicants/', true);
+        let applicants = new Array();
+        xhr.open("GET", 'http://localhost:8080/applicants/');
         xhr.onload = (event)=>{
             var data = JSON.parse(event.target.response);
             if (Number(event.target.status) >= 200 && Number(event.target.status) < 400) data.forEach((applicant)=>{
@@ -1298,10 +1298,10 @@ class CardControllerAPI {
         let xmlRequest = new XMLHttpRequest();
         xmlRequest.open("POST", 'http://localhost:8080/cards/', false);
         xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlRequest.send(JSON.stringify(ICard));
-        //  window.location.reload();
+        xmlRequest.send(ICard);
+        window.location.reload();
         if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400) console.log('error');
-    //DataStorage.createCardList();
+        _dataStorage.DataStorage.createCardList();
     }
     /**
 *	Verilen ICard objesini HTTP PUT metodu ile düzenleyen sınıf, 
@@ -1318,16 +1318,16 @@ class CardControllerAPI {
 * Verilen identity ile uygun ICard nesnesini silmek için HTTP DELETE metodunu çalıştırır.
 */ static deleteCardViaAPI(identity) {
         let xhr = new XMLHttpRequest();
-        xhr.open("DELETE", 'http://localhost:1234/cards/' + identity);
+        xhr.open("DELETE", 'http://localhost:1234/cities/' + identity);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.send();
-        //window.location.reload();
+        window.location.reload();
         if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400) console.log('error');
-    //DataStorage.createCardList();
+        _dataStorage.DataStorage.createCardList();
     }
 }
 
-},{"../../DataStorage":"91qPx","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"dnf12":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ","../../DataStorage":"91qPx"}],"dnf12":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CityControllerAPI", ()=>CityControllerAPI
@@ -1341,10 +1341,10 @@ class CityControllerAPI {
         let xmlRequest = new XMLHttpRequest();
         xmlRequest.open("POST", 'http://localhost:8080/cities/', false);
         xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlRequest.send(JSON.stringify(ICity));
-        //window.location.reload();
+        xmlRequest.send(ICity);
+        window.location.reload();
         if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400) console.log('error');
-    //DataStorage.createCityList();
+        _dataStorage.DataStorage.createCityList();
     }
     /**
 	*	Verilen ICity objesini HTTP PUT metodu ile düzenleyen sınıf, 
@@ -1364,13 +1364,13 @@ class CityControllerAPI {
         xhr.open("DELETE", 'http://localhost:8080/cities/' + CityOpportunityId);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.send();
-        //window.location.reload();
+        window.location.reload();
         if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400) console.log('error');
-    //DataStorage.createCityList();
+        _dataStorage.DataStorage.createCityList();
     }
 }
 
-},{"../../DataStorage":"91qPx","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"kmwZ0":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ","../../DataStorage":"91qPx"}],"kmwZ0":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "TableManager", ()=>TableManager
@@ -1458,7 +1458,7 @@ class TableManager {
     }
 }
 
-},{"../../DataStorage":"91qPx","../API/ApplicantControllerAPI":"dX5yk","../API/CardControllerAPI":"gAs5o","../API/CityControllerAPI":"dnf12","./ListManager":"a9xEb","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"2CwYE":[function(require,module,exports) {
+},{"../../DataStorage":"91qPx","./ListManager":"a9xEb","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ","../API/ApplicantControllerAPI":"dX5yk","../API/CardControllerAPI":"gAs5o","../API/CityControllerAPI":"dnf12"}],"2CwYE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Verifications", ()=>Verifications
