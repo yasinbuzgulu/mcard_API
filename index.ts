@@ -12,6 +12,7 @@ import {CardManager} from './typeScriptFiles/Managers/CardManager';
  */
 const userTableSection: HTMLElement = document.getElementById("userListSection");
 userTableSection.style.display = "none";
+
 const cityOpportunityListSection: HTMLElement = document.getElementById("cityOpportunityListSection");
 cityOpportunityListSection.style.display = "none";
 const cardListSection: HTMLElement = document.getElementById("cardListSection");
@@ -103,6 +104,3 @@ window.addEventListener("load", function () {
     let myCitySelectBox = document.getElementById("checkBoxList");
     ListManager.createCitySelectList(myCitySelectBox, "İstanbul");
 });
-
-
-

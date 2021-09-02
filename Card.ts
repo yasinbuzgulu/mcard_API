@@ -25,7 +25,7 @@ export class Card implements ICard {
   User: string;
   City: string;
   Opportunity: string;
-  CardIdentitty: number;
+  CardIdentity: number;
   CardPrice: number;
   CardExpiryDate: Date;
 

@@ -4,7 +4,7 @@ import { City } from "../../City";
  * Karta tanımlamak için Kartla ilgili bilgileri ifade eden arayüzümüz
  */
 export interface ICard {
-  CardIdentitty : number;
+  CardIdentity : number;
   CardPrice : number;
   CardExpiryDate : Date;
   User : string;

@@ -75,7 +75,15 @@ export class ListManager {
             selectListCity.value = citiesList[i].OpportunityName.toString();
             var label = document.createElement('label');
             label.htmlFor = "inputSelectOpportunity" + i.toString();
+
+            let opportunityYear = document.createElement('input');
+            opportunityYear.type = 'number';
+            opportunityYear.id = 'inputSelectOpportunityYear' + i.toString();
+            opportunityYear.name = 'selectOpportunityYear';
+            opportunityYear.placeholder = "Tanımlanacak Yıl";
+
             label.appendChild(document.createTextNode(citiesList[i].OpportunityName));
+            label.appendChild(opportunityYear);
             checkBoxList.appendChild(selectListCity);
             checkBoxList.appendChild(label);
         }
@@ -199,7 +207,7 @@ export class ListManager {
         let element = document.getElementById("userTableReferedId");
         element.innerHTML = "";
         element.parentNode.removeChild(element);
-      //  ListManager.createUserList(DataStorage.applicants);
+        //  ListManager.createUserList(DataStorage.applicants);
     }
 
     /**
@@ -341,6 +349,8 @@ export class ListManager {
             cellText = document.createTextNode(cardList[i].Opportunity);
             cell.appendChild(cellText);
             row.appendChild(cell);
+            let myOpportunityAmount = (cardList[i].City.length);
+            let mySelectedOpportunity = (cardList[i].Opportunity);
 
             row.appendChild(cell);
             let cellButtonDelete = document.createElement("button");
@@ -367,7 +377,7 @@ export class ListManager {
             cellEditButton.innerHTML = "Düzenle";
             cellEditButton.addEventListener("click", function () {
                 window.location.href = '#cardPage';
-                TableManager.editCardTable(cardList, i);
+                TableManager.editCardTable(cardList, i, myOpportunityAmount, mySelectedOpportunity);
                 return;
 
             });
