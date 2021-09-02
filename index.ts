@@ -1,21 +1,18 @@
-import { Applicant } from './Applicant';
-import { ApplicantManager } from './typeScriptFiles/Managers/ApplicantManager';
-import { City } from './City';
-import { CityManager } from './typeScriptFiles/Managers/CityManager';
-import { DataStorage } from './DataStorage';
-import { ListManager } from './typeScriptFiles/Managers/ListManager';
+import {ApplicantManager} from './typeScriptFiles/Managers/ApplicantManager';
+import {CityManager} from './typeScriptFiles/Managers/CityManager';
+import {DataStorage} from './DataStorage';
+import {ListManager} from './typeScriptFiles/Managers/ListManager';
 // Import stylesheets
 import './style.css';
-import { TableManager } from './typeScriptFiles/Managers/TableManager';
-import { CardManager } from './typeScriptFiles/Managers/CardManager';
-import { CityListFromAPI } from './typeScriptFiles/API/CityListFromAPI';
-import { Verifications } from './Verifications';
+import {TableManager} from './typeScriptFiles/Managers/TableManager';
+import {CardManager} from './typeScriptFiles/Managers/CardManager';
 
 /**
  * Listeleri başlangıç halinde kapalı hale getiren kısım
  */
 const userTableSection: HTMLElement = document.getElementById("userListSection");
 userTableSection.style.display = "none";
+
 const cityOpportunityListSection: HTMLElement = document.getElementById("cityOpportunityListSection");
 cityOpportunityListSection.style.display = "none";
 const cardListSection: HTMLElement = document.getElementById("cardListSection");
@@ -34,54 +31,53 @@ let cardDefaultList = DataStorage.createCardList();
  * Yeni Kullancı kısmında kaydet butonuna tıklanınca karşılaşılacak senaryo
  */
 const saveNewUser: HTMLElement = document.getElementById("newUserSavingButton");
-const userForm : HTMLFormElement = document.getElementById("userForm") as HTMLFormElement;
-saveNewUser.onclick = function() {    
-  
-  if(userForm.reportValidity()){
-    ApplicantManager.createApplicantObject();
-    TableManager.resetUserPage();
-}
+const userForm: HTMLFormElement = document.getElementById("userForm") as HTMLFormElement;
+saveNewUser.onclick = function () {
+    if (userForm.reportValidity()) {
+        ApplicantManager.createApplicantObject();
+        TableManager.resetUserPage();
+    }
 };
 /**
  * * Yeni Kullancı kısmında listele butonuna tıklanınca karşılaşılacak senaryo
  */
 const listUsers: HTMLElement = document.getElementById("listUserButton");
-listUsers.onclick = function() { 
-  let myUserTableList = document.getElementById("userListSection");
-  userTableSection.style.display = "inline";
-  cityOpportunityListSection.style.display = "none";
-  cardListSection.style.display = "none";
-  ListManager.createUserList(DataStorage.applicants);
-  }
+listUsers.onclick = function () {
+    let myUserTableList = document.getElementById("userListSection");
+    userTableSection.style.display = "inline";
+    cityOpportunityListSection.style.display = "none";
+    cardListSection.style.display = "none";
+    ListManager.createUserList(DataStorage.applicants);
+}
 /**
  *  * Yeni Şehir-olanak kısmında kaydet butonuna tıklanınca karşılaşılacak senaryo
  */
 const saveNewCityOpportunity: HTMLElement = document.getElementById("newCityAndOpportunitySavingButton");
-const cityForm : HTMLFormElement = document.getElementById("cityForm") as HTMLFormElement;
-saveNewCityOpportunity.onclick = function() { 
-      if(cityForm.reportValidity()){
-      CityManager.createCityObject();
-      TableManager.resetCityPage();
+const cityForm: HTMLFormElement = document.getElementById("cityForm") as HTMLFormElement;
+saveNewCityOpportunity.onclick = function () {
+    if (cityForm.reportValidity()) {
+        CityManager.createCityObject();
+        TableManager.resetCityPage();
 
-      }
+    }
 }
 /**
  * Yeni Şehir-olanak kısmında listele butonuna tıklanınca karşılaşılacak senaryo
  */
 const listCitiesOpportunities: HTMLElement = document.getElementById("listCityOpportunityButton");
-listCitiesOpportunities.onclick = function() {
-  let myCityOpportunityTableList = document.getElementById("cityOpportunityListSection");
-  userTableSection.style.display = "none";
-  cityOpportunityListSection.style.display = "inline";
-  cardListSection.style.display = "none";
-  ListManager.createCityOpportunityList(DataStorage.cities);
+listCitiesOpportunities.onclick = function () {
+    let myCityOpportunityTableList = document.getElementById("cityOpportunityListSection");
+    userTableSection.style.display = "none";
+    cityOpportunityListSection.style.display = "inline";
+    cardListSection.style.display = "none";
+    ListManager.createCityOpportunityList(DataStorage.cities);
 }
 /**
  * Yeni Kart kısmında kaydet butonuna tıklanınca karşılaşılacak senaryo
  */
 const saveNewCard: HTMLElement = document.getElementById("newCardSavingButton");
-const cardForm : HTMLFormElement = document.getElementById("cardForm") as HTMLFormElement;
-saveNewCard.onclick = function() {
+const cardForm: HTMLFormElement = document.getElementById("cardForm") as HTMLFormElement;
+saveNewCard.onclick = function () {
     CardManager.createCardObject();
     TableManager.resetCardPage();
     alert("Kart başarılı bir şekilde listeye eklendi.");
@@ -90,15 +86,15 @@ saveNewCard.onclick = function() {
  * Yeni Kart kısmında listele butonuna tıklanınca karşılaşılacak senaryo
  */
 const listCards: HTMLElement = document.getElementById("listCardButton");
-listCards.onclick = function() {
-  let myCityOpportunityTableList = document.getElementById("cardListSection");
-  userTableSection.style.display = "none";
-  cityOpportunityListSection.style.display = "none";
-  cardListSection.style.display = "inline";
-  ListManager.createCardList(DataStorage.cards);
+listCards.onclick = function () {
+    let myCityOpportunityTableList = document.getElementById("cardListSection");
+    userTableSection.style.display = "none";
+    cityOpportunityListSection.style.display = "none";
+    cardListSection.style.display = "inline";
+    ListManager.createCardList(DataStorage.cards);
 }
 /**
- * Kart kaydındaki Select box ların oluşturulduğu kısım  
+ * Kart kaydındaki Select box ların oluşturulduğu kısım
  */
 window.addEventListener("load", function () {
     let myUserSelectBox = document.getElementById("userField");

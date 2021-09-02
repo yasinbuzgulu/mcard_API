@@ -4,7 +4,7 @@ export class ApplicantListFromAPI {
 
     static getApplicantViaXhr() {
 		let xhr = new XMLHttpRequest();
-		let applicants: Array<IApplicant> = new Array();
+		let applicants: Array<IApplicant> = [];
 		xhr.open("GET", 'http://localhost:8080/applicants/');
 		xhr.onload = (event) => {
 			var data = JSON.parse(event.target.response);
