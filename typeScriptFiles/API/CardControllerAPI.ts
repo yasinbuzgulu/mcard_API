@@ -10,7 +10,7 @@ export class CardControllerAPI {
         xmlRequest.open("POST", 'http://localhost:8080/cards/', false);
 
         xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlRequest.send(ICard);
+        xmlRequest.send(JSON.stringify(ICard));
         // window.location.reload();
         if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400)
             console.log('error');
@@ -24,7 +24,7 @@ export class CardControllerAPI {
         let xmlRequest = new XMLHttpRequest();
         xmlRequest.open("PUT", 'http://localhost:8080/cards/' + identity);
         xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlRequest.send(ICard);
+        xmlRequest.send(JSON.stringify(ICard));
         //window.location.reload();
         if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400)
             console.log('error');

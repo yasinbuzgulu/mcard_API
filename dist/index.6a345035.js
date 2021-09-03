@@ -549,158 +549,7 @@ listCards.onclick = function() {
     _listManager.ListManager.createCitySelectList(myCitySelectBox, "İstanbul");
 });
 
-},{"./typeScriptFiles/Managers/ApplicantManager":"7MKWA","./typeScriptFiles/Managers/CityManager":"5isDM","./DataStorage":"91qPx","./typeScriptFiles/Managers/ListManager":"a9xEb","./style.css":"dTv9V","./typeScriptFiles/Managers/TableManager":"kmwZ0","./typeScriptFiles/Managers/CardManager":"f7E1M"}],"7MKWA":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-/**
- *  * Program başvuran kişinin bilgilerinin oluşturulduğu ve verisaklamaya gönderildiği cardList sınıf
- */ parcelHelpers.export(exports, "ApplicantManager", ()=>ApplicantManager
-);
-var _applicant = require("../../Applicant");
-var _dataStorage = require("../../DataStorage");
-var _listManager = require("./ListManager");
-var _applicantControllerAPI = require("../API/ApplicantControllerAPI");
-var _verifications = require("../../Verifications");
-class ApplicantManager {
-    static createApplicantObject() {
-        let applicantName = document.getElementById("applicantNameAttach");
-        let applicantSurname = document.getElementById("applicantSurnameAttach");
-        let applicantBirthDate = document.getElementById("applicantBirthDateAttach");
-        _verifications.Verifications.checkDate(applicantBirthDate);
-        let applicantID = document.getElementById("applicantIDAttach");
-        const selectedTypeOfApplicantBasedOnAgeInput = document.getElementById("citizenTypeSelection");
-        let typeOfApplicantBasedOnAge;
-        switch(Number(selectedTypeOfApplicantBasedOnAgeInput.value)){
-            case 0:
-                typeOfApplicantBasedOnAge = "Çocuk";
-                break;
-            case 2:
-                typeOfApplicantBasedOnAge = "Yaşlı";
-                break;
-            case 1:
-                typeOfApplicantBasedOnAge = "Normal";
-                break;
-        }
-        const selectedTypeOfApplicantBasedOnEducationInput = document.getElementById("applicatTypeSelection");
-        let typeOfApplicantBasedOnEducation;
-        switch(selectedTypeOfApplicantBasedOnEducationInput.value){
-            case "0":
-                typeOfApplicantBasedOnEducation = "Öğrenci";
-                break;
-            case "1":
-                typeOfApplicantBasedOnEducation = "Sivil";
-                break;
-            case "2":
-                typeOfApplicantBasedOnEducation = "--";
-        }
-        if (_verifications.Verifications.findApplicantToEdit(Number(applicantID.value)) == true) {
-            let newApplicant = new _applicant.Applicant(applicantName.value.toUpperCase(), applicantSurname.value.toUpperCase(), applicantBirthDate.value, Number(applicantID.value), typeOfApplicantBasedOnAge, typeOfApplicantBasedOnEducation);
-            _applicantControllerAPI.ApplicantControllerAPI.editApplicantViaAPI(newApplicant, applicantID.value);
-        } else //  if(Verifications.checkID(applicantID)){
-        if (_verifications.Verifications.validateID(applicantID)) {
-            let newApplicant = new _applicant.Applicant(applicantName.value.toUpperCase(), applicantSurname.value.toUpperCase(), applicantBirthDate.value, Number(applicantID.value), typeOfApplicantBasedOnAge, typeOfApplicantBasedOnEducation);
-            _applicantControllerAPI.ApplicantControllerAPI.createApplicantViaAPI(newApplicant);
-            // DataStorage.applicants.push(newApplicant);
-            _listManager.ListManager.updateUserSelectionList();
-            alert("Kullanıcı başarılı bir şekilde listeye eklendi.");
-        }
-    }
-    static getApplicantNameWithId(id) {
-        let result = "";
-        _dataStorage.DataStorage.applicants.forEach((applicant)=>{
-            if (applicant.ApplicantID === id) result = applicant.ApplicantName;
-        });
-        return result;
-    }
-}
-
-},{"../../Applicant":"aThwr","../../DataStorage":"91qPx","./ListManager":"a9xEb","../API/ApplicantControllerAPI":"dX5yk","../../Verifications":"2CwYE","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"aThwr":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-/**
- * Program başvuran kişinin bilgilerinin saklandığı sınıf
- */ parcelHelpers.export(exports, "Applicant", ()=>Applicant
-);
-class Applicant {
-    constructor(applicantName1, applicantSurname1, applicantBirthDate1, applicantID1, typeOfApplicantBasedOnAge, typeOfApplicantBasedOnEducation){
-        this._applicantName = applicantName1;
-        this._applicantSurname = applicantSurname1;
-        this._applicantBirthDate = applicantBirthDate1;
-        this._applicantID = applicantID1;
-        this._typeOfApplicantBasedOnAge = typeOfApplicantBasedOnAge;
-        this._typeOfApplicantBasedOnEducation = typeOfApplicantBasedOnEducation;
-    }
-    get ApplicantName() {
-        return this._applicantName;
-    }
-    set ApplicantName(applicantName) {
-        this._applicantName = applicantName;
-    }
-    get ApplicantSurname() {
-        return this._applicantSurname;
-    }
-    set ApplicantSurname(applicantSurname) {
-        this._applicantSurname = applicantSurname;
-    }
-    get ApplicantBirthDate() {
-        return this._applicantBirthDate;
-    }
-    set ApplicantBirthDate(applicantBirthDate) {
-        this._applicantBirthDate = applicantBirthDate;
-    }
-    get ApplicantID() {
-        return this._applicantID;
-    }
-    set ApplicantID(applicantID) {
-        this._applicantID = applicantID;
-    }
-    get ApplicantTypeBasedOnAge() {
-        return this._typeOfApplicantBasedOnAge;
-    }
-    set ApplicantTypeBasedOnAge(applicantTypeBasedOnAge) {
-        this._typeOfApplicantBasedOnAge = applicantTypeBasedOnAge;
-    }
-    get ApplicantTypeBasedOnEducation() {
-        return this._typeOfApplicantBasedOnEducation;
-    }
-    set ApplicantTypeBasedOnEducation(applicantTypeBasedOnEducation) {
-        this._typeOfApplicantBasedOnEducation = applicantTypeBasedOnEducation;
-    }
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"jzpuJ":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, '__esModule', {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === 'default' || key === '__esModule') return;
-        // Skip duplicate re-exports when they have the same value.
-        if (key in dest && dest[key] === source[key]) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"91qPx":[function(require,module,exports) {
+},{"./DataStorage":"91qPx","./style.css":"dTv9V","./typeScriptFiles/Managers/ApplicantManager":"7MKWA","./typeScriptFiles/Managers/CardManager":"f7E1M","./typeScriptFiles/Managers/CityManager":"5isDM","./typeScriptFiles/Managers/ListManager":"a9xEb","./typeScriptFiles/Managers/TableManager":"kmwZ0"}],"91qPx":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "DataStorage", ()=>DataStorage
@@ -820,7 +669,39 @@ class ApplicantListFromAPI {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"iXQFl":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"jzpuJ":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule') return;
+        // Skip duplicate re-exports when they have the same value.
+        if (key in dest && dest[key] === source[key]) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"iXQFl":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CardListFromAPI", ()=>CardListFromAPI
@@ -828,7 +709,7 @@ parcelHelpers.export(exports, "CardListFromAPI", ()=>CardListFromAPI
 class CardListFromAPI {
     static getCardViaXhr() {
         let xhr = new XMLHttpRequest();
-        let cards = new Array();
+        let cards = [];
         xhr.open("GET", 'http://localhost:8080/cards/');
         xhr.onload = (event)=>{
             var data = JSON.parse(event.target.response);
@@ -861,7 +742,7 @@ parcelHelpers.export(exports, "CityListFromAPI", ()=>CityListFromAPI
 class CityListFromAPI {
     static getCityViaXhr() {
         let xhr = new XMLHttpRequest();
-        let cities = new Array();
+        let cities = [];
         xhr.open("GET", 'http://localhost:8080/cities/');
         xhr.onload = (event)=>{
             var data = JSON.parse(event.target.response);
@@ -885,6 +766,125 @@ class CityListFromAPI {
     }
 }
 
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"dTv9V":[function() {},{}],"7MKWA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/**
+ *  * Program başvuran kişinin bilgilerinin oluşturulduğu ve verisaklamaya gönderildiği cardList sınıf
+ */ parcelHelpers.export(exports, "ApplicantManager", ()=>ApplicantManager
+);
+var _applicant = require("../../Applicant");
+var _dataStorage = require("../../DataStorage");
+var _listManager = require("./ListManager");
+var _applicantControllerAPI = require("../API/ApplicantControllerAPI");
+var _verifications = require("../../Verifications");
+class ApplicantManager {
+    static createApplicantObject() {
+        let applicantName = document.getElementById("applicantNameAttach");
+        let applicantSurname = document.getElementById("applicantSurnameAttach");
+        let applicantBirthDate = document.getElementById("applicantBirthDateAttach");
+        _verifications.Verifications.checkDate(applicantBirthDate);
+        let applicantID = document.getElementById("applicantIDAttach");
+        const selectedTypeOfApplicantBasedOnAgeInput = document.getElementById("citizenTypeSelection");
+        let typeOfApplicantBasedOnAge;
+        switch(Number(selectedTypeOfApplicantBasedOnAgeInput.value)){
+            case 0:
+                typeOfApplicantBasedOnAge = "Çocuk";
+                break;
+            case 2:
+                typeOfApplicantBasedOnAge = "Yaşlı";
+                break;
+            case 1:
+                typeOfApplicantBasedOnAge = "Normal";
+                break;
+        }
+        const selectedTypeOfApplicantBasedOnEducationInput = document.getElementById("applicatTypeSelection");
+        let typeOfApplicantBasedOnEducation;
+        switch(selectedTypeOfApplicantBasedOnEducationInput.value){
+            case "0":
+                typeOfApplicantBasedOnEducation = "Öğrenci";
+                break;
+            case "1":
+                typeOfApplicantBasedOnEducation = "Sivil";
+                break;
+            case "2":
+                typeOfApplicantBasedOnEducation = "--";
+        }
+        if (_verifications.Verifications.findApplicantToEdit(Number(applicantID.value)) == true) {
+            let newApplicant = new _applicant.Applicant(applicantName.value.toUpperCase(), applicantSurname.value.toUpperCase(), applicantBirthDate.value, Number(applicantID.value), typeOfApplicantBasedOnAge, typeOfApplicantBasedOnEducation);
+            _applicantControllerAPI.ApplicantControllerAPI.editApplicantViaAPI(newApplicant, applicantID.value);
+        } else //  if(Verifications.checkID(applicantID)){
+        if (_verifications.Verifications.validateID(applicantID)) {
+            let newApplicant = new _applicant.Applicant(applicantName.value.toUpperCase(), applicantSurname.value.toUpperCase(), applicantBirthDate.value, Number(applicantID.value), typeOfApplicantBasedOnAge, typeOfApplicantBasedOnEducation);
+            _applicantControllerAPI.ApplicantControllerAPI.createApplicantViaAPI(newApplicant);
+            // DataStorage.applicants.push(newApplicant);
+            _listManager.ListManager.updateUserSelectionList();
+            alert("Kullanıcı başarılı bir şekilde listeye eklendi.");
+        }
+    }
+    static getApplicantNameWithId(id) {
+        let result = "";
+        _dataStorage.DataStorage.applicants.forEach((applicant)=>{
+            if (applicant.ApplicantID === id) result = applicant.ApplicantName;
+        });
+        return result;
+    }
+}
+
+},{"../../Applicant":"aThwr","../../DataStorage":"91qPx","./ListManager":"a9xEb","../API/ApplicantControllerAPI":"dX5yk","../../Verifications":"2CwYE","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"aThwr":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/**
+ * Program başvuran kişinin bilgilerinin saklandığı sınıf
+ */ parcelHelpers.export(exports, "Applicant", ()=>Applicant
+);
+class Applicant {
+    constructor(applicantName1, applicantSurname1, applicantBirthDate1, applicantID1, typeOfApplicantBasedOnAge, typeOfApplicantBasedOnEducation){
+        this._applicantName = applicantName1;
+        this._applicantSurname = applicantSurname1;
+        this._applicantBirthDate = applicantBirthDate1;
+        this._applicantID = applicantID1;
+        this._typeOfApplicantBasedOnAge = typeOfApplicantBasedOnAge;
+        this._typeOfApplicantBasedOnEducation = typeOfApplicantBasedOnEducation;
+    }
+    get ApplicantName() {
+        return this._applicantName;
+    }
+    set ApplicantName(applicantName) {
+        this._applicantName = applicantName;
+    }
+    get ApplicantSurname() {
+        return this._applicantSurname;
+    }
+    set ApplicantSurname(applicantSurname) {
+        this._applicantSurname = applicantSurname;
+    }
+    get ApplicantBirthDate() {
+        return this._applicantBirthDate;
+    }
+    set ApplicantBirthDate(applicantBirthDate) {
+        this._applicantBirthDate = applicantBirthDate;
+    }
+    get ApplicantID() {
+        return this._applicantID;
+    }
+    set ApplicantID(applicantID) {
+        this._applicantID = applicantID;
+    }
+    get ApplicantTypeBasedOnAge() {
+        return this._typeOfApplicantBasedOnAge;
+    }
+    set ApplicantTypeBasedOnAge(applicantTypeBasedOnAge) {
+        this._typeOfApplicantBasedOnAge = applicantTypeBasedOnAge;
+    }
+    get ApplicantTypeBasedOnEducation() {
+        return this._typeOfApplicantBasedOnEducation;
+    }
+    set ApplicantTypeBasedOnEducation(applicantTypeBasedOnEducation) {
+        this._typeOfApplicantBasedOnEducation = applicantTypeBasedOnEducation;
+    }
+}
+
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"a9xEb":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -904,6 +904,7 @@ class ListManager {
         selectList.innerHTML = `<option value="none" selected disabled hidden required> Lütfen Kullanıcı Seçiniz`;
         myUser.appendChild(selectList);
         for(let i = 0; i < applicants.length; i++){
+            console.log("girdim");
             let option = document.createElement("option");
             option.value = applicants[i].ApplicantID.toString();
             option.text = applicants[i].ApplicantName + " " + applicants[i].ApplicantID;
@@ -1137,7 +1138,7 @@ class ListManager {
         for(let i = 0; i < cardList.length; i++){
             let row = document.createElement("tr");
             let cell = document.createElement("td");
-            let cellText = document.createTextNode(cardList[i].CardIdentitty);
+            let cellText = document.createTextNode(cardList[i].CardIdentity);
             cell.appendChild(cellText);
             row.appendChild(cell);
             cell = document.createElement("td");
@@ -1204,16 +1205,107 @@ class ListManager {
     }
 }
 
-},{"../../DataStorage":"91qPx","../API/ApplicantControllerAPI":"dX5yk","../API/CardControllerAPI":"gAs5o","../API/CityControllerAPI":"dnf12","./TableManager":"kmwZ0","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"dX5yk":[function(require,module,exports) {
+},{"./TableManager":"kmwZ0","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ","../../DataStorage":"91qPx","../API/ApplicantControllerAPI":"dX5yk","../API/CardControllerAPI":"gAs5o","../API/CityControllerAPI":"dnf12"}],"kmwZ0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "TableManager", ()=>TableManager
+);
+var _dataStorage = require("../../DataStorage");
+var _listManager = require("./ListManager");
+class TableManager {
+    static editUserTable(userList, i) {
+        let applicantNameEdit = document.getElementById("applicantNameAttach");
+        applicantNameEdit.defaultValue = _dataStorage.DataStorage.applicants[i].ApplicantName.toString();
+        let applicantSurnameEdit = document.getElementById("applicantSurnameAttach");
+        applicantSurnameEdit.defaultValue = _dataStorage.DataStorage.applicants[i].ApplicantSurname.toString();
+        let applicantIdEdit = document.getElementById("applicantIDAttach");
+        applicantIdEdit.defaultValue = _dataStorage.DataStorage.applicants[i].ApplicantID.toString();
+        document.getElementById('applicantBirthDateAttach').value = _dataStorage.DataStorage.applicants[i].ApplicantBirthDate.substring(0, 10);
+        if (_dataStorage.DataStorage.applicants[i].ApplicantTypeBasedOnAge == "Çocuk") document.getElementById("citizenTypeSelection").value = '0';
+        else if (_dataStorage.DataStorage.applicants[i].ApplicantTypeBasedOnAge == "Normal") document.getElementById("citizenTypeSelection").value = '1';
+        else if (_dataStorage.DataStorage.applicants[i].ApplicantTypeBasedOnAge == "Yaşlı") document.getElementById("citizenTypeSelection").value = '2';
+        if (_dataStorage.DataStorage.applicants[i].ApplicantTypeBasedOnEducation == "Öğrenci") document.getElementById("applicatTypeSelection").value = '0';
+        else if (_dataStorage.DataStorage.applicants[i].ApplicantTypeBasedOnEducation == "Sivil") document.getElementById("applicatTypeSelection").value = '1';
+        else document.getElementById("applicatTypeSelection").value = '2';
+        //ApplicantControllerAPI.editApplicantViaAPI(userList[i],userList[i].applicantID);
+        // DataStorage.applicants = DataStorage.applicants.filter
+        // (applicant => applicant.ApplicantName != userList[i].ApplicantName);
+        _listManager.ListManager.refreshUserTable();
+    }
+    static editCityTable(cityList, i) {
+        let cityNameEdit = document.getElementById("cityNameAttach");
+        cityNameEdit.defaultValue = _dataStorage.DataStorage.cities[i].CityName.toString();
+        let opportunityNameEdit = document.getElementById("opportunityNameAttach");
+        opportunityNameEdit.defaultValue = _dataStorage.DataStorage.cities[i].OpportunityName.toString();
+        let perYearPriceEdit = document.getElementById("perYearPriceAttatch");
+        perYearPriceEdit.value = _dataStorage.DataStorage.cities[i].PerYearPrice.toString();
+        let topLimitYearValueEdit = document.getElementById("topLimitYearValueAttach");
+        topLimitYearValueEdit.defaultValue = _dataStorage.DataStorage.cities[i].TopLimitYearValue.toString();
+        //CityControllerAPI.editCityViaAPI(cityList[i],cityList[i].CityOpportunityId);
+        //DataStorage.cities = DataStorage.cities.filter (cityOpportunity =>
+        // (cityOpportunity.CityName+cityOpportunity.OpportunityName) != (cityList[i].CityName+cityList[i].OpportunityName));
+        _listManager.ListManager.refreshCityOpportunityTable();
+    }
+    static editCardTable(cardList, i, opportunityAmount, mySelectedOpportunity) {
+        let id = cardList[i].User.toString();
+        let myApplicantId = id.slice(id.length - 11);
+        document.getElementById("myUserSelect").value = myApplicantId;
+        document.getElementById("myCityOpportunitySelect").value = cardList[i].City;
+        let cardPriceValueEdit = document.getElementById("cardPriceAttach");
+        cardPriceValueEdit.defaultValue = cardList[i].CardPrice.toString();
+        for(let j = 0; j < opportunityAmount; j++){
+            let myOpportunityId = "inputSelectOpportunity" + j.toString();
+            let myCheckBox = document.getElementById(myOpportunityId);
+            myCheckBox.defaultChecked = false;
+            for(let k = 0; k < mySelectedOpportunity.length; k++)if (myCheckBox.value == mySelectedOpportunity[k]) myCheckBox.defaultChecked = true;
+        }
+        //  DataStorage.cards = DataStorage.cards.filter (card => (card.CardIdentitty) != (cardList[i].CardIdentitty));
+        _listManager.ListManager.refreshCardTable();
+    }
+    static resetUserPage() {
+        let applicantNameEdit = document.getElementById("applicantNameAttach");
+        applicantNameEdit.defaultValue = "";
+        let applicantSurnameEdit = document.getElementById("applicantSurnameAttach");
+        applicantSurnameEdit.defaultValue = "";
+        let applicantSBirthDateEdit = document.getElementById("applicantBirthDateAttach");
+        applicantSBirthDateEdit.value = "";
+        let applicantIdEdit = document.getElementById("applicantIDAttach");
+        applicantIdEdit.defaultValue = "";
+        document.getElementById('userForm').reset();
+    }
+    static resetCityPage() {
+        let cityNameEdit = document.getElementById("cityNameAttach");
+        cityNameEdit.defaultValue = "";
+        let opportunityNameEdit = document.getElementById("opportunityNameAttach");
+        opportunityNameEdit.defaultValue = "";
+        let perYearPriceEdit = document.getElementById("perYearPriceAttatch");
+        perYearPriceEdit.value = "";
+        let topLimitYearValueEdit = document.getElementById("topLimitYearValueAttach");
+        topLimitYearValueEdit.defaultValue = "";
+        document.getElementById('cityForm').reset();
+    }
+    static resetCardPage() {
+        let cardPriceEdit = document.getElementById("cardPriceAttach");
+        cardPriceEdit.defaultValue = '';
+        let userSelectionEdit = document.getElementById("myUserSelect");
+        userSelectionEdit.value = "0";
+        let citySelectionEdit = document.getElementById("myCityOpportunitySelect");
+        citySelectionEdit.value = "0";
+        document.getElementById('cardForm').reset();
+    }
+}
+
+},{"../../DataStorage":"91qPx","./ListManager":"a9xEb","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"dX5yk":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ApplicantControllerAPI", ()=>ApplicantControllerAPI
 );
+var _iapplicant = require("../interface/IApplicant");
 class ApplicantControllerAPI {
     /**
-     *
-     * @param IApplicant    *    Verilen parametre objesini HTTP POST metodu ile gönderen metod
-     */ static createApplicantViaAPI(IApplicant) {
+ *
+ * @param IApplicant 	*	Verilen parametre objesini HTTP POST metodu ile gönderen metod
+ */ static createApplicantViaAPI(IApplicant) {
         let xmlRequest = new XMLHttpRequest();
         xmlRequest.open("POST", 'http://localhost:8080/applicants/', false);
         xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -1223,8 +1315,8 @@ class ApplicantControllerAPI {
     //DataStorage.createApplicantlist();
     }
     /**
-     *    Verilen IApplicant objesini HTTP PUT metodu ile düzenleyen sınıf,
-     */ static editApplicantViaAPI(myApplicant, applicantID) {
+	*	Verilen IApplicant objesini HTTP PUT metodu ile düzenleyen sınıf,
+	*/ static editApplicantViaAPI(myApplicant, applicantID) {
         var url = 'http://localhost:8080/applicants/' + applicantID;
         var data = {
             ApplicantName: myApplicant.ApplicantName,
@@ -1245,8 +1337,8 @@ class ApplicantControllerAPI {
         xhr.send(json);
     }
     /**
-     * Verilen applicantID ile uygun IApplicant nesnesini silmek için HTTP DELETE metodunu çalıştırır.
-     */ static deleteApplicantViaAPI(applicantID) {
+	* Verilen applicantID ile uygun IApplicant nesnesini silmek için HTTP DELETE metodunu çalıştırır.
+	*/ static deleteApplicantViaAPI(applicantID) {
         let xhr = new XMLHttpRequest();
         xhr.open("DELETE", 'http://localhost:8080/applicants/' + applicantID);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -1256,6 +1348,10 @@ class ApplicantControllerAPI {
     //DataStorage.createApplicantlist();
     }
 }
+
+},{"../interface/IApplicant":"1lm3A","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"1lm3A":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"gAs5o":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -1270,7 +1366,7 @@ class CardControllerAPI {
         let xmlRequest = new XMLHttpRequest();
         xmlRequest.open("POST", 'http://localhost:8080/cards/', false);
         xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlRequest.send(ICard);
+        xmlRequest.send(JSON.stringify(ICard));
         // window.location.reload();
         if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400) console.log('error');
     //DataStorage.createCardList();
@@ -1281,7 +1377,7 @@ class CardControllerAPI {
         let xmlRequest = new XMLHttpRequest();
         xmlRequest.open("PUT", 'http://localhost:8080/cards/' + identity);
         xmlRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xmlRequest.send(ICard);
+        xmlRequest.send(JSON.stringify(ICard));
         //window.location.reload();
         if (!Number(event.target.status) >= 200 && Number(event.target.status) < 400) console.log('error');
     // DataStorage.createCardList();
@@ -1341,100 +1437,7 @@ class CityControllerAPI {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"kmwZ0":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "TableManager", ()=>TableManager
-);
-var _dataStorage = require("../../DataStorage");
-var _listManager = require("./ListManager");
-class TableManager {
-    static editUserTable(userList, i) {
-        let applicantNameEdit = document.getElementById("applicantNameAttach");
-        applicantNameEdit.defaultValue = _dataStorage.DataStorage.applicants[i].ApplicantName.toString();
-        let applicantSurnameEdit = document.getElementById("applicantSurnameAttach");
-        applicantSurnameEdit.defaultValue = _dataStorage.DataStorage.applicants[i].ApplicantSurname.toString();
-        let applicantIdEdit = document.getElementById("applicantIDAttach");
-        applicantIdEdit.defaultValue = _dataStorage.DataStorage.applicants[i].ApplicantID.toString();
-        document.getElementById('applicantBirthDateAttach').value = _dataStorage.DataStorage.applicants[i].ApplicantBirthDate.substring(0, 10);
-        if (_dataStorage.DataStorage.applicants[i].ApplicantTypeBasedOnAge == "Çocuk") document.getElementById("citizenTypeSelection").value = '0';
-        else if (_dataStorage.DataStorage.applicants[i].ApplicantTypeBasedOnAge == "Normal") document.getElementById("citizenTypeSelection").value = '1';
-        else if (_dataStorage.DataStorage.applicants[i].ApplicantTypeBasedOnAge == "Yaşlı") document.getElementById("citizenTypeSelection").value = '2';
-        if (_dataStorage.DataStorage.applicants[i].ApplicantTypeBasedOnEducation == "Öğrenci") document.getElementById("applicatTypeSelection").value = '0';
-        else if (_dataStorage.DataStorage.applicants[i].ApplicantTypeBasedOnEducation == "Sivil") document.getElementById("applicatTypeSelection").value = '1';
-        else document.getElementById("applicatTypeSelection").value = '2';
-        //ApplicantControllerAPI.editApplicantViaAPI(userList[i],userList[i].applicantID);
-        // DataStorage.applicants = DataStorage.applicants.filter
-        // (applicant => applicant.ApplicantName != userList[i].ApplicantName);
-        _listManager.ListManager.refreshUserTable();
-    }
-    static editCityTable(cityList, i) {
-        let cityNameEdit = document.getElementById("cityNameAttach");
-        cityNameEdit.defaultValue = _dataStorage.DataStorage.cities[i].CityName.toString();
-        let opportunityNameEdit = document.getElementById("opportunityNameAttach");
-        opportunityNameEdit.defaultValue = _dataStorage.DataStorage.cities[i].OpportunityName.toString();
-        let perYearPriceEdit = document.getElementById("perYearPriceAttatch");
-        perYearPriceEdit.value = _dataStorage.DataStorage.cities[i].PerYearPrice.toString();
-        let topLimitYearValueEdit = document.getElementById("topLimitYearValueAttach");
-        topLimitYearValueEdit.defaultValue = _dataStorage.DataStorage.cities[i].TopLimitYearValue.toString();
-        //CityControllerAPI.editCityViaAPI(cityList[i],cityList[i].CityOpportunityId);
-        //DataStorage.cities = DataStorage.cities.filter (cityOpportunity =>
-        // (cityOpportunity.CityName+cityOpportunity.OpportunityName) != (cityList[i].CityName+cityList[i].OpportunityName));
-        _listManager.ListManager.refreshCityOpportunityTable();
-    }
-    static editCardTable(cardList, i, opportunityAmount, mySelectedOpportunity) {
-        let id = cardList[i].User.toString();
-        document.getElementById("myUserSelect").value = id.slice(id.length - 11);
-        document.getElementById("myCityOpportunitySelect").value = cardList[i].City;
-        let cardPriceValueEdit = document.getElementById("cardPriceAttach");
-        cardPriceValueEdit.defaultValue = cardList[i].CardPrice.toString();
-        for(let j = 0; j < opportunityAmount; j++){
-            let myOpportunityId = "inputSelectOpportunity" + j.toString();
-            console.log(myOpportunityId + "idddd");
-            let myCheckBox = document.getElementById(myOpportunityId);
-            myCheckBox.defaultChecked = false;
-            for(let k = 0; k < mySelectedOpportunity.length; k++){
-                console.log(mySelectedOpportunity[k] + " seçililer");
-                if (myCheckBox.value == mySelectedOpportunity[k]) myCheckBox.defaultChecked = true;
-            }
-        }
-        //DataStorage.cards = DataStorage.cards.filter (card => (card.CardIdentity) != (cardList[i].CardIdentity));
-        _listManager.ListManager.refreshCardTable();
-    }
-    static resetUserPage() {
-        let applicantNameEdit = document.getElementById("applicantNameAttach");
-        applicantNameEdit.defaultValue = "";
-        let applicantSurnameEdit = document.getElementById("applicantSurnameAttach");
-        applicantSurnameEdit.defaultValue = "";
-        let applicantSBirthDateEdit = document.getElementById("applicantBirthDateAttach");
-        applicantSBirthDateEdit.value = "";
-        let applicantIdEdit = document.getElementById("applicantIDAttach");
-        applicantIdEdit.defaultValue = "";
-        document.getElementById('userForm').reset();
-    }
-    static resetCityPage() {
-        let cityNameEdit = document.getElementById("cityNameAttach");
-        cityNameEdit.defaultValue = "";
-        let opportunityNameEdit = document.getElementById("opportunityNameAttach");
-        opportunityNameEdit.defaultValue = "";
-        let perYearPriceEdit = document.getElementById("perYearPriceAttatch");
-        perYearPriceEdit.value = "";
-        let topLimitYearValueEdit = document.getElementById("topLimitYearValueAttach");
-        topLimitYearValueEdit.defaultValue = "";
-        document.getElementById('cityForm').reset();
-    }
-    static resetCardPage() {
-        let cardPriceEdit = document.getElementById("cardPriceAttach");
-        cardPriceEdit.defaultValue = '';
-        let userSelectionEdit = document.getElementById("myUserSelect");
-        userSelectionEdit.value = "0";
-        let citySelectionEdit = document.getElementById("myCityOpportunitySelect");
-        citySelectionEdit.value = "0";
-        document.getElementById('cardForm').reset();
-    }
-}
-
-},{"../../DataStorage":"91qPx","./ListManager":"a9xEb","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"2CwYE":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"2CwYE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Verifications", ()=>Verifications
@@ -1542,13 +1545,13 @@ class Verifications {
         for(let i = 0; i < cardList.length; i++){
             let id = cardList[i].User.toString();
             let myApplicantId = id.slice(id.length - 11);
-            if (myApplicant.toString() == myApplicantId) {
+            if (myApplicant == myApplicantId) {
                 if (myCity == cardList[i].City.toString()) {
                     // let confirmDelete = confirm("Seçilen " + myApplicant + " kullanıcısı için " + myCity + " şehri  adına daha önce kart oluşturulmuştur.\n Üzerine yazmak istediğinize emin misiniz? \n Dikkat, Bu işlem geri alınamaz!");
                     // if (confirmDelete) {
                     //   var ele_rem1 = cardList.splice(i, 1);
                     controller = 1;
-                    return cardList[i].CardIdentitty;
+                    return cardList[i].CardIdentity;
                 }
                 if (controller == 1) return null;
             // else {
@@ -1566,7 +1569,125 @@ class Verifications {
     }
 }
 
-},{"./DataStorage":"91qPx","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"5isDM":[function(require,module,exports) {
+},{"./DataStorage":"91qPx","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"f7E1M":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/**
+ * Kart bilgilerinin derlenip yeni kart nesnelerinin oluşturulduğu sınıf
+ */ parcelHelpers.export(exports, "CardManager", ()=>CardManager
+);
+var _card = require("../../Card");
+var _dataStorage = require("../../DataStorage");
+var _verifications = require("../../Verifications");
+var _cardControllerAPI = require("../API/CardControllerAPI");
+class CardManager {
+    static createCardObject() {
+        let cardPrice = document.getElementById("cardPriceAttach");
+        let todayDate = new Date();
+        let year = todayDate.getFullYear();
+        let month = todayDate.getMonth();
+        let day = todayDate.getDate();
+        let addedExpiryDateYear = 4;
+        let expiryDateValue = new Date(year + addedExpiryDateYear, month, day);
+        let expiryDate = expiryDateValue.toDateString();
+        const userSelector = document.getElementById("myUserSelect");
+        let selectedUserID = userSelector.options[userSelector.selectedIndex].value;
+        const resultUser = _dataStorage.DataStorage.applicants.filter((item)=>item.ApplicantID == selectedUserID
+        );
+        const citySelector = document.getElementById("myCityOpportunitySelect");
+        let selectedCityName = citySelector.options[citySelector.selectedIndex].value;
+        let resultCity = _dataStorage.DataStorage.cities.filter((item)=>item.CityName == selectedCityName
+        );
+        let checkedUser = [];
+        for(let i = 0; i < resultUser.length; i++){
+            checkedUser.push(resultUser[i].ApplicantName.toUpperCase() + " " + resultUser[i].ApplicantSurname.toUpperCase() + " " + resultUser[i].ApplicantID);
+            var myApplicant = resultUser[i].ApplicantID;
+            var typeCitizen = resultUser[i].ApplicantTypeBasedOnAge;
+            var typeApplicant = resultUser[i].ApplicantTypeBasedOnEducation;
+        }
+        let checkedCity = [];
+        for(let i1 = 0; i1 < resultCity.length; i1++)checkedCity.push(resultCity[i1].CityName.toUpperCase());
+        const opportunitySelector = document.getElementById("checkBoxList");
+        let element = document.getElementById("checkBoxList");
+        element.checked;
+        var inputElems = document.getElementsByTagName("input");
+        let checkedOpportunity = [];
+        for(var i2 = 0; i2 < inputElems.length; i2++)if (inputElems[i2].type == "checkbox" && inputElems[i2].checked == true) checkedOpportunity.push(inputElems[i2].value);
+        let result = 0;
+        for(let i3 = 0; i3 < _dataStorage.DataStorage.cities.length; i3++)if (checkedCity[0] == _dataStorage.DataStorage.cities[i3].CityName) {
+            for(let j = 0; j < checkedOpportunity.length; j++)if (checkedOpportunity[j] == _dataStorage.DataStorage.cities[i3].OpportunityName) result = result + _dataStorage.DataStorage.cities[i3].PerYearPrice * _dataStorage.DataStorage.cities[i3].TopLimitYearValue;
+        }
+        if (typeCitizen == "Çocuk" || typeCitizen == "Yaşlı") var finalPrice = 0;
+        else if (typeApplicant == "Öğrenci") finalPrice = result + Number(cardPrice.value) - (result + Number(cardPrice.value)) / 5;
+        let cardIdendity;
+        if (!!_verifications.Verifications.checkCardExistence(myApplicant, checkedCity, _dataStorage.DataStorage.cards)) cardIdendity = _verifications.Verifications.checkCardExistence(myApplicant, checkedCity, _dataStorage.DataStorage.cards);
+        else cardIdendity = Math.floor(Math.random() * 100000000);
+        if (_verifications.Verifications.findCardToEdit(cardIdendity) == true) {
+            //  if (Verifications.checkCardExistence(myApplicant, checkedCity, DataStorage.cards, cardIdendity)) {
+            let newCard = new _card.Card(cardIdendity, Number(cardPrice.value), expiryDate, checkedUser, checkedCity, checkedOpportunity);
+            _cardControllerAPI.CardControllerAPI.editCardViaAPI(newCard, Number(cardIdendity));
+            alert("Kart başarıyla düzenlendi");
+        } else {
+            let newCard = new _card.Card(cardIdendity, Number(cardPrice.value), expiryDate, checkedUser, checkedCity, checkedOpportunity);
+            _cardControllerAPI.CardControllerAPI.createCardViaAPI(newCard);
+            // DataStorage.cards.push(newCard);
+            alert("Normal \xfccret ; \n Kart \xdccreti :" + Number(cardPrice.value) + "  Toplam Olanak Fiyatı :" + result + "\n Ödenecek tutar : " + finalPrice);
+        // }
+        }
+    }
+    static getCardWithId(id) {
+        let result = "";
+        _dataStorage.DataStorage.cards.forEach((card)=>{
+            if (card.CardIdentity === id) result = card.User + card.City + card.Opportunity;
+        });
+        return result;
+    }
+    static getCardCityWithId(id) {
+        let result = "";
+        _dataStorage.DataStorage.cards.forEach((card)=>{
+            if (card.CardIdentity === id) result = card.User + card.City;
+        });
+        return result;
+    }
+}
+
+},{"../../Card":"jBgOb","../../DataStorage":"91qPx","../../Verifications":"2CwYE","../API/CardControllerAPI":"gAs5o","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"jBgOb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/**
+ * Programda tanımlı kartların ID, fiyat, son kullanım tarihi, kullanıcının ve şehir-olanağın tanımlandığı sınıf
+ */ parcelHelpers.export(exports, "Card", ()=>Card
+);
+class Card {
+    constructor(identity1, price1, expiryDate1, applicant, city, opportunity){
+        this._identity = identity1;
+        this._price = price1;
+        this._expiryDate = expiryDate1;
+        this.applicant = applicant;
+        this.city = city;
+        this.opportunity = opportunity;
+    }
+    get Identity() {
+        return this._identity;
+    }
+    set Identitty(identity) {
+        this._identity = identity;
+    }
+    get Price() {
+        return this._price;
+    }
+    set Price(price) {
+        this._price = price;
+    }
+    get ExpiryDate() {
+        return this._expiryDate;
+    }
+    set ExpiryDate(expiryDate) {
+        this._expiryDate = expiryDate;
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"5isDM":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 /**
@@ -1661,124 +1782,6 @@ class City {
     }
     set CityOpportunityId(CityOpportunityId) {
         this._CityOpportunityId = CityOpportunityId;
-    }
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"dTv9V":[function() {},{}],"f7E1M":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-/**
- * Kart bilgilerinin derlenip yeni kart nesnelerinin oluşturulduğu sınıf
- */ parcelHelpers.export(exports, "CardManager", ()=>CardManager
-);
-var _card = require("../../Card");
-var _dataStorage = require("../../DataStorage");
-var _verifications = require("../../Verifications");
-var _cardControllerAPI = require("../API/CardControllerAPI");
-class CardManager {
-    static createCardObject() {
-        let cardPrice = document.getElementById("cardPriceAttach");
-        let todayDate = new Date();
-        let year = todayDate.getFullYear();
-        let month = todayDate.getMonth();
-        let day = todayDate.getDate();
-        let addedExpiryDateYear = 4;
-        let expiryDateValue = new Date(year + addedExpiryDateYear, month, day);
-        let expiryDate = expiryDateValue.toDateString();
-        const userSelector = document.getElementById("myUserSelect");
-        let selectedUserID = userSelector.options[userSelector.selectedIndex].value;
-        const resultUser = _dataStorage.DataStorage.applicants.filter((item)=>item.ApplicantID == selectedUserID
-        );
-        const citySelector = document.getElementById("myCityOpportunitySelect");
-        let selectedCityName = citySelector.options[citySelector.selectedIndex].value;
-        let resultCity = _dataStorage.DataStorage.cities.filter((item)=>item.CityName == selectedCityName
-        );
-        let checkedUser = [];
-        for(let i = 0; i < resultUser.length; i++){
-            checkedUser.push(resultUser[i].ApplicantName.toUpperCase() + " " + resultUser[i].ApplicantSurname.toUpperCase() + " " + resultUser[i].ApplicantID);
-            var myApplicant = resultUser[i].ApplicantID;
-            var typeCitizen = resultUser[i].ApplicantTypeBasedOnAge;
-            var typeApplicant = resultUser[i].ApplicantTypeBasedOnEducation;
-        }
-        let checkedCity = [];
-        for(let i1 = 0; i1 < resultCity.length; i1++)checkedCity.push(resultCity[i1].CityName.toUpperCase());
-        const opportunitySelector = document.getElementById("checkBoxList");
-        let element = document.getElementById("checkBoxList");
-        element.checked;
-        var inputElems = document.getElementsByTagName("input");
-        let checkedOpportunity = [];
-        for(var i2 = 0; i2 < inputElems.length; i2++)if (inputElems[i2].type == "checkbox" && inputElems[i2].checked == true) checkedOpportunity.push(inputElems[i2].value);
-        let result = 0;
-        for(let i3 = 0; i3 < _dataStorage.DataStorage.cities.length; i3++)if (checkedCity[0] == _dataStorage.DataStorage.cities[i3].CityName) {
-            for(let j = 0; j < checkedOpportunity.length; j++)if (checkedOpportunity[j] == _dataStorage.DataStorage.cities[i3].OpportunityName) result = result + _dataStorage.DataStorage.cities[i3].PerYearPrice * _dataStorage.DataStorage.cities[i3].TopLimitYearValue;
-        }
-        if (typeCitizen == "Çocuk" || typeCitizen == "Yaşlı") var finalPrice = 0;
-        else if (typeApplicant == "Öğrenci") finalPrice = result + Number(cardPrice.value) - (result + Number(cardPrice.value)) / 5;
-        let cardIdendity;
-        if (!!_verifications.Verifications.checkCardExistence(myApplicant, checkedCity, _dataStorage.DataStorage.cards)) cardIdendity = _verifications.Verifications.checkCardExistence(myApplicant, checkedCity, _dataStorage.DataStorage.cards);
-        else cardIdendity = Math.floor(Math.random() * 100000000);
-        if (_verifications.Verifications.findCardToEdit(cardIdendity) == true) {
-            //  if (Verifications.checkCardExistence(myApplicant, checkedCity, DataStorage.cards, cardIdendity)) {
-            let newCard = new _card.Card(Number(cardIdendity), Number(cardPrice.value), expiryDate, checkedUser, checkedCity, checkedOpportunity);
-            _cardControllerAPI.CardControllerAPI.editCardViaAPI(newCard, cardIdendity);
-            alert("Kart başarıyla düzenlendi");
-        } else {
-            let newCard = new _card.Card(Number(cardIdendity), Number(cardPrice.value), expiryDate, checkedUser, checkedCity, checkedOpportunity);
-            _cardControllerAPI.CardControllerAPI.createCardViaAPI(newCard);
-            // DataStorage.cards.push(newCard);
-            alert("Normal \xfccret ; \n Kart \xdccreti :" + Number(cardPrice.value) + "  Toplam Olanak Fiyatı :" + result + "\n Ödenecek tutar : " + finalPrice);
-        // }
-        }
-    }
-    static getCardWithId(id) {
-        let result = "";
-        _dataStorage.DataStorage.cards.forEach((card)=>{
-            if (card.CardIdentity === id) result = card.User + card.City + card.Opportunity;
-        });
-        return result;
-    }
-    static getCardCityWithId(id) {
-        let result = "";
-        _dataStorage.DataStorage.cards.forEach((card)=>{
-            if (card.CardIdentity === id) result = card.User + card.City;
-        });
-        return result;
-    }
-}
-
-},{"../../Card":"jBgOb","../../DataStorage":"91qPx","../../Verifications":"2CwYE","../API/CardControllerAPI":"gAs5o","@parcel/transformer-js/src/esmodule-helpers.js":"jzpuJ"}],"jBgOb":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-/**
- * Programda tanımlı kartların ID, fiyat, son kullanım tarihi, kullanıcının ve şehir-olanağın tanımlandığı sınıf
- */ parcelHelpers.export(exports, "Card", ()=>Card
-);
-class Card {
-    constructor(identity1, price1, expiryDate1, applicant, city, opportunity){
-        this._identity = identity1;
-        this._price = price1;
-        this._expiryDate = expiryDate1;
-        this.applicant = applicant;
-        this.city = city;
-        this.opportunity = opportunity;
-    }
-    get Identity() {
-        return this._identity;
-    }
-    set Identitty(identity) {
-        this._identity = identity;
-    }
-    get Price() {
-        return this._price;
-    }
-    set Price(price) {
-        this._price = price;
-    }
-    get ExpiryDate() {
-        return this._expiryDate;
-    }
-    set ExpiryDate(expiryDate) {
-        this._expiryDate = expiryDate;
     }
 }
 

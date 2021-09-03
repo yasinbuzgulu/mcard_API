@@ -50,7 +50,6 @@ export class CardManager {
         let checkedOpportunity: any = [];
         for (var i = 0; i < inputElems.length; i++) {
             if (inputElems[i].type == "checkbox" && inputElems[i].checked == true) {
-
                 checkedOpportunity.push(inputElems[i].value);
             }
         }
@@ -81,11 +80,11 @@ export class CardManager {
 
         if (Verifications.findCardToEdit(cardIdendity) == true) {
             //  if (Verifications.checkCardExistence(myApplicant, checkedCity, DataStorage.cards, cardIdendity)) {
-            let newCard = new Card(Number(cardIdendity), Number(cardPrice.value), expiryDate, checkedUser, checkedCity, checkedOpportunity);
-            CardControllerAPI.editCardViaAPI(newCard, cardIdendity);
+            let newCard = new Card((cardIdendity), Number(cardPrice.value), expiryDate, checkedUser, checkedCity, checkedOpportunity);
+            CardControllerAPI.editCardViaAPI(newCard, Number(cardIdendity));
             alert("Kart başarıyla düzenlendi");
         } else {
-            let newCard = new Card(Number(cardIdendity), Number(cardPrice.value), expiryDate, checkedUser, checkedCity, checkedOpportunity);
+            let newCard = new Card((cardIdendity), Number(cardPrice.value), expiryDate, checkedUser, checkedCity, checkedOpportunity);
             CardControllerAPI.createCardViaAPI(newCard);
             // DataStorage.cards.push(newCard);
             alert("Normal ücret ; \n" + " Kart Ücreti :" + Number(cardPrice.value) + "  Toplam Olanak Fiyatı :" + result + "\n Ödenecek tutar : " + finalPrice);

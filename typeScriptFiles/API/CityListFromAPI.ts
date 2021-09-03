@@ -4,7 +4,7 @@ export class CityListFromAPI {
 
     static getCityViaXhr() {
         let xhr = new XMLHttpRequest();
-        let cities :Array<ICity> = new Array();
+        let cities :Array<ICity> = [];
         xhr.open("GET", 'http://localhost:8080/cities/');
 
         xhr.onload = (event) => {

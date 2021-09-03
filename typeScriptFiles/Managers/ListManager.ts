@@ -8,12 +8,13 @@ export class ListManager {
     /**
      * Yeni Kart kaydında kaydedilen kullanıcıların listelendiği kısım
      */
-    static createUserSelectList(myUser, applicants) {
+    static createUserSelectList(myUser, applicants?) {
         let selectList = document.createElement("select");
         selectList.id = "myUserSelect";
         selectList.innerHTML = `<option value="none" selected disabled hidden required> Lütfen Kullanıcı Seçiniz`;
         myUser.appendChild(selectList);
         for (let i = 0; i < applicants.length; i++) {
+            console.log("girdim");
             let option = document.createElement("option");
             option.value = applicants[i].ApplicantID.toString();
             option.text = applicants[i].ApplicantName + " " + applicants[i].ApplicantID;
@@ -326,7 +327,7 @@ export class ListManager {
         for (let i = 0; i < cardList.length; i++) {
             let row = document.createElement("tr");
             let cell = document.createElement("td");
-            let cellText = document.createTextNode(cardList[i].CardIdentitty);
+            let cellText = document.createTextNode(cardList[i].CardIdentity);
             cell.appendChild(cellText);
             row.appendChild(cell);
 

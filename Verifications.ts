@@ -134,13 +134,13 @@ export class Verifications {
         for (let i = 0; i < cardList.length; i++) {
             let id = cardList[i].User.toString();
             let myApplicantId = (id.slice(id.length - 11));
-            if (myApplicant.toString() == myApplicantId) {
+            if (myApplicant == myApplicantId) {
                 if (myCity == cardList[i].City.toString()) {
                     // let confirmDelete = confirm("Seçilen " + myApplicant + " kullanıcısı için " + myCity + " şehri  adına daha önce kart oluşturulmuştur.\n Üzerine yazmak istediğinize emin misiniz? \n Dikkat, Bu işlem geri alınamaz!");
                     // if (confirmDelete) {
                     //   var ele_rem1 = cardList.splice(i, 1);
                     controller = 1;
-                    return cardList[i].CardIdentitty;
+                    return cardList[i].CardIdentity;
                 }
                 if (controller == 1) return null;
                 // else {

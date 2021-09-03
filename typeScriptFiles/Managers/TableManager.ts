@@ -55,24 +55,25 @@ export class TableManager {
     }
 
     static editCardTable(cardList, i, opportunityAmount, mySelectedOpportunity) {
-        let id = cardList[i].User.toString();
-        document.getElementById("myUserSelect").value = (id.slice(id.length - 11));
+        let id =cardList[i].User.toString();
+        let myApplicantId = (id.slice(id.length - 11));
+        document.getElementById("myUserSelect").value = myApplicantId;
         document.getElementById("myCityOpportunitySelect").value = cardList[i].City;
-        let cardPriceValueEdit = <HTMLInputElement>(document.getElementById("cardPriceAttach"));
+        let cardPriceValueEdit = <HTMLInputElement>(  document.getElementById("cardPriceAttach")  );
         cardPriceValueEdit.defaultValue = cardList[i].CardPrice.toString();
-        for (let j = 0; j < opportunityAmount; j++) {
+        for (let j = 0; j<opportunityAmount; j++) {
             let myOpportunityId = "inputSelectOpportunity" + j.toString();
-            console.log(myOpportunityId + "idddd");
-            let myCheckBox = document.getElementById(myOpportunityId) as HTMLInputElement;
-            myCheckBox.defaultChecked = false;
-            for (let k = 0; k < mySelectedOpportunity.length; k++) {
-                console.log(mySelectedOpportunity[k] + " seçililer")
-                if (myCheckBox.value == mySelectedOpportunity[k]) {
+            let myCheckBox = <HTMLInputElement> document.getElementById(myOpportunityId);
+            myCheckBox.defaultChecked = false ;
+            for (let k = 0; k<mySelectedOpportunity.length; k++) {
+                if(myCheckBox.value == mySelectedOpportunity[k]) {
                     myCheckBox.defaultChecked = true;
                 }
             }
+
+
         }
-        //DataStorage.cards = DataStorage.cards.filter (card => (card.CardIdentity) != (cardList[i].CardIdentity));
+      //  DataStorage.cards = DataStorage.cards.filter (card => (card.CardIdentitty) != (cardList[i].CardIdentitty));
         ListManager.refreshCardTable();
 
     }
